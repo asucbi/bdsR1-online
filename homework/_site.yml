@@ -1,0 +1,10 @@
+# FOR LABS: use this _site.yml for consistent design of all labs; outputs knitted html to docs for immediate publication
+name: "BDSR1-online"
+output_dir: "../docs/hws"
+output:
+  tufte::tufte_html:
+    highlight: pygments
+    self_contained: false
+    css: assets/hw.css
+
+
