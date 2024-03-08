@@ -31,7 +31,7 @@ The goal of this assignment is to introduce you to R, RStudio, and integration w
 
 ## Prerequisites {data-link="Prerequisites"}
 
-This assignment assumes that you have completed all the steps in the Canvas pages: "How to setup and access Posit Cloud" and on "How to prepare and submit a submission in Posit Cloud for Canvas." If you haven't yet done so, please pause and complete it before continuing.
+This assignment assumes that you have completed all the steps in the Canvas pages: "How to set up and access Posit Cloud" and on "How to prepare and submit a submission in Posit Cloud for Canvas." If you haven't yet done so, please pause and complete it before continuing.
 
 ## Terminology
 
@@ -44,8 +44,8 @@ We've already thrown around a few new terms, so let's define them before we proc
 
 -   **Posit Cloud** The online service for accessing RStudio. 
 
-    -   In this course, assignment instructions you work on (HWs, Labs, Project) will be available on Canvas. The "starter" documents needed to complete each assignment will typically be available on Posit Cloud; however, for Week 1, you need to download from the instruction page in Canvas. 
-
+    -   In this course, assignment instructions you work on (HWs, Labs, Exams) will be available on Canvas. The "starter" documents needed to complete each assignment will also be available on Posit Cloud.
+    
 ## Starting slow
 
 As the course progresses, you are encouraged to explore beyond what the assignments dictate; a willingness to experiment will make you a much better programmer!
@@ -58,24 +58,30 @@ Before you can get started with the analysis, you need to make sure you:
 
 # Workflow
 
-For each assignment in this course you will go to a shared folder in Posit Cloud that contains starter documents (except for Week 1 where you will upload the document yourself). You will build upon this document when working on your assignment. In Posit Cloud/RStudio you will edit them, run them, view your results, and interpret them. In other words, all data analysis will happen in Posit Cloud/RStudio. 
+```{marginfigure}
+All documents you will access and create in Posit Cloud/RStudio are known as R Notebooks. An R Notebook is a type of document that combines R code with ordinary text and graphics, allowing you to write, run, and see the results of your R code alongside commentary and analysis. It's a powerful tool for data analysis and visualization, making it easy to compile your findings, code, and charts in one interactive and easy-to-share document. 
+```
+
+For each assignment in this course you will go to a shared folder in Posit Cloud that contains starter documents. You will build upon this document when working on your assignment. In Posit Cloud/RStudio you will edit them, run them, view your results, and interpret them. In other words, all data analysis will happen in Posit Cloud/RStudio. 
 
 Lets walk through some of the steps that will get you ready for analysis. 
 
 # Hello RStudio!
 
-For Week 1 only, you need to follow the instructions on the Canvas page: "Posit Cloud: Setting up for Week 1" to get the homework .RMD file loaded into your Posit Cloud/RStudio environment. 
+Go to [rstudio.cloud](https://rstudio.cloud/ "RStudio Cloud") and then **navigate to the course workspace** via the left sidebar. 
 
-<!-- Go to [rstudio.cloud](https://rstudio.cloud/ "RStudio Cloud") and then **navigate to the course workspace** via the left sidebar. It's very important that you do this for two reasons: -->
+```{marginfigure}
+R packages are add-ons for the R programming language, providing extra functions and tools for tasks like data analysis and visualization. They're like apps you install to expand R's abilities, with thousands available on CRAN (Comprehensive R Archive Network) for various uses, from plotting charts to statistical testing, simplifying complex operations.
+```
 
-<!-- -   It's only when you're in the course workspace that you'll be able to benefit from R packages I've pre-installed for you so that your project can be configured correctly. -->
-<!-- -   It's only when you're in the course workspace that your usage of RStudio Cloud won't count towards the free usage limits. -->
+-   It's only when you're in the course workspace that you'll be able to benefit from R packages I've pre-installed for you so that your project can be configured correctly.
+-   It's only when you're in the course workspace that your usage of Posit 
+Cloud won't count towards the free usage limits.
+Before you proceed, confirm that you are in the course workspace by checking out what's on your top bar in Posit Cloud.
 
 ```{r course-workspace, echo = FALSE, eval = TRUE, fig.align = "center"}
 knitr::include_graphics("img/course-workspace.png")
 ```
-
-<!-- Before you proceed, confirm that you are in the course workspace by checking out what's on your top bar in RStudio Cloud. -->
 
 ## RStudio Layout
 
@@ -95,7 +101,7 @@ knitr::include_graphics("img/rstudio-anatomy-new.png")
 Before we introduce the data, let's warm up with some simple exercises.
 
 ```{marginfigure}
-The top portion of your R Markdown file (between the three dashed lines) is called **YAML**. It stands for "YAML Ain't Markup Language". It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.
+The top portion of your R Markdown document (between the three dashed lines) is called **YAML**. It stands for "YAML Ain't Markup Language". It contains metadata (settings and information about the notebook itself). It's used to specify things like the title, author, date, and output format (e.g., PDF, HTML). Think of it as a header that tells R and other tools how to process and display the notebook, ensuring that the document is formatted and behaves as intended when it's compiled or shared.
 ```
 
 ## Step 1. Update the YAML
@@ -109,6 +115,10 @@ knitr::include_graphics("img/yaml-raw-to-rendered-new.png")
 ## Step 2: Knit it!
 
 Now, look for that little button at the top called "Knit" (in the image below, it's bounded in the red box). When you click it, you'll see some some activity under the **Render** tab in the Console pane and a beautiful notebook (similar to what you're reading now) will appear in the bottom-right Console pane under the **Viewer** tab.  
+
+```{marginfigure}
+When you knit for the first time, your browser might get upset if you have an ad blocker on. Watch my video "How to prepare and submit a submission in Posit Cloud for Canvas" in the Module "Important Resources and HOWTOs" if you're having trouble. 
+```
 
 ```{r knit-to-default, echo = FALSE, eval = TRUE, fig.align = "left"}
 knitr::include_graphics("img/knit1.png")
@@ -142,18 +152,18 @@ Note that these packages also get loaded in your R Markdown environment when you
 
 # Data
 
-The data we will be working with is all about the show ['Parks and Recreation,'](https://en.wikipedia.org/wiki/Parks_and_Recreation) a popular mockumentary style sitcom that ran from 2009-2015. The dataset contains some information about every episode from every season, and we will be focusing on which characters were mentioned in each episode's brief description on IMDB. We also have the average IMDB user rating for each episode, but that is for another day.
-
 ```{marginfigure}
 [IMBD](https://www.imdb.com/) is a community-led online database for information related to films and television. One of the features is "User Ratings" that allows people to rate each episode on a scale from 1 to 10 (with 10 being the highest possible score). 
 ```
 
-The data can be found in the **bdsdata** package, and it's called `parks_rec`.
-Since the dataset is distributed with the package, we don't need to load it separately; it becomes available to us when we load the package.
+The data we will be working with is all about the show ['Parks and Recreation,'](https://en.wikipedia.org/wiki/Parks_and_Recreation) a popular mockumentary style sitcom that ran from 2009-2015. The dataset contains some information about every episode from every season, and we will be focusing on which characters were mentioned in each episode's brief description on IMDB. We also have the average IMDB user rating for each episode, but that is for another day.
 
 ```{marginfigure}
 NOTE: 'parks_rec' is derived from a much more complete dataset that someone posted to the site [Kaggle.com](http://kaggle.com). Kaggle is a great online resource for aspiring and seasoned data scientists where lots of interesting datasets are provided by a large, open community. If curious, you can check out the original dataset [here](https://www.kaggle.com/datasets/bcruise/parks-and-recreation-episode-data). 
 ```
+
+The data can be found in the **bdsdata** package, and it's called `parks_rec`.
+Since the dataset is distributed with the package, we don't need to load it separately; it becomes available to us when we load the package.
 
 You can view the dataset as a spreadsheet using the `View()` function. Note that you should not put this function in your R Markdown document, but instead type it directly in the Console, as it pops open a new window (and the concept of popping open a window in a static document doesn't really make sense...).
 When you run this in the console, you'll see the following **data viewer** window pop up.
@@ -168,32 +178,39 @@ knitr::include_graphics("img/view-data-new.png")
 
 If you hover over description of each episode in the data viewer you can see the full description. 
 
+```{marginfigure}
+In the R programming language, using ? followed by a function or dataset name is a quick and efficient way to access help documentation. This feature is crucial for both beginners and experienced users because it provides immediate explanations, usage examples, and details about the function or dataset's parameters and behavior. Essentially, it acts as an instant guide, making it easier to understand and correctly apply various tools and data within R.
+```
+
 You can find out more about the dataset by inspecting its documentation (which contains a **data dictionary**, name of each variable and its description), which you can access by running `?parks_rec` in the Console or using the Help menu in RStudio to search for `parks_rec`.
 
 # Exercises
 
 1.  According to the data dictionary, how many unique characters from the show are included in this dataset?
 
-🧶 ✅ ⬆️ *Write your answer in your R Markdown starter document under Exercise 1, knit the document as a "html_document" (default output in the YAML).*
+🧶 ✅ *Write your answer in your R Markdown starter document under Exercise 1, knit the document as a "html_document" (default output in the YAML).*
 
 2.  Again, according to the data dictionary, how many rows of data do we have for this dataset?
 
-🧶 ✅ ⬆️ *Write your answer in your R Markdown starter document under Exercise 2, knit the document as a "html_document" (default output in the YAML).*
+🧶 ✅ *Write your answer in your R Markdown starter document under Exercise 2, knit the document as a "html_document" (default output in the YAML).*
 
 3.  Who are the three most mentioned show characters across all seasons? To do this you will need to count the frequencies of each character and display the results in descending order of frequency so that you can easily see the top three most mentioned characters. The following code does exactly that.
 
 ```{marginfigure}
-The two lines of code can be read as "Start with the parks_rec data frame, and then count the number of times each unique character shows up, and display the results sorted in descending order. The 'and then' in the previous sentence maps to %>%, the pipe operator, which takes what comes before it and plugs it in as the first argument of the function that comes after it."
+The two lines of code can be read as "Start with the parks_rec data frame, and then count the number of times each unique character shows up, and display the results sorted in descending order." The 'and then' in the previous sentence maps to %>%, the pipe operator, which takes what comes before it and plugs it in as the first argument of the function that comes after it.
 ```
 
 ```{r}
 parks_rec %>%
   count(character, sort = TRUE)
+
 ```
 
-🧶 ✅ ⬆️ *Write your answer in your R Markdown starter document under Exercise 3, knit the document as a "html_document" (default output in the YAML).*
+🧶 ✅ *Write your answer in your R Markdown starter document under Exercise 3, knit the document as a "html_document" (default output in the YAML).*
 
-Let's now look at the character "Leslie" played by Amy Poehler. We want to find out which season she shows up the most within each episode's description.  
+Ok. Now I'm going to give you a set of instruction you need to plug into your document. These will help you answer Exercise 4.  
+
+We're going to zoom in on the character "Leslie" played by Amy Poehler. We want to find out which season she shows up the most within each episode's description.  
 
 For this we need to first `filter` the data to just get rows with "Leslie" as the character and count how many of these "Leslie" rows occur in each level of `season`. 
 
@@ -234,7 +251,7 @@ parks_rec %>%
   count(sort = TRUE)
 ```
 
-🧶 ✅ ⬆️ *Write your answer in your R Markdown starter document under Exercise 4, knit the document as a "html_document" (default output in the YAML).*
+🧶 ✅ *Write your answer in your R Markdown starter document under Exercise 4, knit the document as a "html_document" (default output in the YAML).*
 
 Now knowing there there are a different number of episodes for each season, looking at the raw count of how many times a character is mentioned across episodes does not really allow us to compare across seasons. For example, Leslie appears 6 times in Season 1, but 21 times in Season 5. But from our analysis, we know there are only 6 total episodes in Season 1, and she is featured in 100% of them (`6/6 = 1.0`). This is similar to the 95.45% (`21/22 = 0.95`) of episodes she is featured in for Season 5. 
 
@@ -282,7 +299,7 @@ final_props %>%
 
 # Submit to Canvas
 
-When you're all done, it's now time to do the final knit to submit this assignment on Canvas. Remember, you want to knit as a PDF and submit the generated PDF document for grading! If you cannot remember how, or are running into problems, please watch my little video in the Canvas page: "Posit Cloud: Editing and Preparing for Submission"
+When you're all done, it's now time to do the final knit to submit this assignment on Canvas. Remember, you want to knit as a PDF and submit the generated PDF document for grading! If you cannot remember how, or are running into problems, please watch my little video in the Canvas page: "How to prepare and submit a submission in Posit Cloud for Canvas"
 
 <!-- Now let's shift gears and take a look at the IMDB ratings. It might be interesting to see which episodes received the highest ratings. But first, lets get some simple summary statistics on the IMDB ratings so we know what we're working with. To do this we can run R's built-in `summary` function on our IMDB column. These functions are "generic" in that they get automatically loaded every time you open R.     -->
 
