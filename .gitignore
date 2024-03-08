@@ -39,9 +39,6 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
-# pkgdown site
-docs/
-
 # translation temp files
 po/*~
 
@@ -51,3 +48,8 @@ rsconnect/
 ## local testing files
 local/
 nicksandbox/
+
+# .DS_Store
+.DS_Store/
+
+
