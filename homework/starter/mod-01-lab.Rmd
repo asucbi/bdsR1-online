@@ -1,5 +1,5 @@
 ---
-title: "HW 01 - Parks and Recreation"
+title: "LAB 01 - Parks and Recreation"
 author: "Insert your name here"
 date: "Insert date here"
 output: html_document
