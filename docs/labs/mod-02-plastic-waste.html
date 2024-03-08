@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>LAB 02 - Plastic waste</title>
+
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+if(f.classList.contains('fa-chevron-circle-right')) {
+    f.classList.add('fa-chevron-circle-down')
+    f.classList.remove('fa-chevron-circle-right')
+} else {
+    f.classList.add('fa-chevron-circle-right')
+    f.classList.remove('fa-chevron-circle-down')
+}
+}
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #204a87; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="assets/style-labs.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">LAB 02 - Plastic waste</h1>
+
+</div>
+
+
+<p>Plastic pollution is a major and growing problem, negatively affecting oceans and wildlife health.
+<a href="https://ourworldindata.org/plastic-pollution">Our World in Data</a> has a lot of great data at various levels including globally, per country, and over time.
+For this lab we focus on data from 2010.</p>
+<p>Additionally, National Geographic ran a data visualization communication contest on plastic waste as seen <a href="https://www.nationalgeographic.org/funding-opportunities/innovation-challenges/plastic/dataviz/">here</a>.</p>
+<div class="lo">
+<p><strong>LEARNING OBJECTIVES</strong></p>
+<ul>
+<li>Visualizing numerical and categorical data and interpreting visualizations</li>
+<li>Recreating visualizations</li>
+<li>Getting more practice using with R and RStudio</li>
+</ul>
+</div>
+<div id="getting-started" class="section level1">
+<h1>Getting started</h1>
+<p>Go to the course RStudio Cloud Workspace and locate the folder for the lab assignment, which should be named <code>lab-02-plastic-waste</code>.</p>
+<p>First, open the R Markdown document <code>lab-02.Rmd</code> and Knit it.</p>
+<p>Make sure it compiles without errors and you can preview the output within the Viewer Pane.</p>
+<p>The output should also be automatically saved as an <code>.html</code> file with the same name.</p>
+<div id="packages" class="section level2">
+<h2>Packages</h2>
+<p>We’ll use the <strong>tidyverse</strong> package for this analysis.
+Run the following code in the Console to load this package.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+</div>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>The dataset for this assignment can be found as a csv file in the <code>data</code> folder of your repository. You can read it in using the following.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>plastic_waste <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;./data/plastic-waste.csv&quot;</span>)</span></code></pre></div>
+<p>The variable descriptions are as follows:</p>
+<ul>
+<li><code>code</code>: 3 Letter country code</li>
+<li><code>entity</code>: Country name</li>
+<li><code>continent</code>: Continent name</li>
+<li><code>year</code>: Year</li>
+<li><code>gdp_per_cap</code>: GDP per capita constant 2011 international $, rate</li>
+<li><code>plastic_waste_per_cap</code>: Amount of plastic waste per capita in kg/day</li>
+<li><code>mismanaged_plastic_waste_per_cap</code>: Amount of mismanaged plastic waste per capita in kg/day</li>
+<li><code>mismanaged_plastic_waste</code>: Tonnes of mismanaged plastic waste</li>
+<li><code>coastal_pop</code>: Number of individuals living on/near coast</li>
+<li><code>total_pop</code>: Total population according to Gapminder</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="warm-up-exercises" class="section level1">
+<h1>Warm up exercises</h1>
+<ol style="list-style-type: decimal">
+<li>Recall that RStudio is divided into four panes. Without looking, can you name them all and briefly describe their purpose?</li>
+</ol>
+<div style="display:none;">
+<p>The panes are called X, Y, Z, and Q!</p>
+</div>
+<p class="solution-end">
+</p>
+<hr />
+<ol start="2" style="list-style-type: decimal">
+<li>Verify that the dataset has loaded into the Environment. How many observations are in the dataset? Clicking on the dataset in the Environment will allow you to inspect it more carefully. Alternatively, you can type <code>View(plastic_waste)</code> into the Console to inspect the data.</li>
+</ol>
+<hr />
+<div style="display:none;">
+<p>There are a total of 240 observations in the dataset.</p>
+<p>You can directly print the number of rows (observations) by typing <code>nrow(plastic_waste)</code> into the Console.</p>
+</div>
+<p class="solution-end">
+</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Have a quick look at the data and notice that there are cells taking the value <code>NA</code> – what does this mean?</li>
+</ol>
+<p><strong>Hint:</strong> If you’re not sure, run the command <code>?NA</code> which will lead you to the documentation.</p>
+<div style="display:none;">
+<p><code>NA</code> means “Not Available”–it is the typical code for a missing value.</p>
+</div>
+<p class="solution-end">
+</p>
+<hr />
+</div>
+<div id="main-exercises" class="section level1">
+<h1>Main exercises</h1>
+<p>Let’s start by taking a look at the distribution of plastic waste per capita in 2010.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plastic_waste, <span class="fu">aes</span>(<span class="at">x =</span> plastic_waste_per_cap)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.2</span>)</span></code></pre></div>
+<p><img src="mod-02-plastic-waste_files/figure-html/plastic_waste_per_cap-hist-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>One country stands out as an unusual observation at the top of the distribution.
+One way of identifying this country is to filter the data for countries where plastic waste per capita is greater than 3.5 kg/person.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>plastic_waste <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="fu">filter</span>(plastic_waste_per_cap <span class="sc">&gt;</span> <span class="fl">3.5</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 10
+##   code  entity              continent     year gdp_per_cap plastic_waste_per_cap
+##   &lt;chr&gt; &lt;chr&gt;               &lt;chr&gt;        &lt;dbl&gt;       &lt;dbl&gt;                 &lt;dbl&gt;
+## 1 TTO   Trinidad and Tobago North Ameri…  2010      31261.                   3.6
+## # ℹ 4 more variables: mismanaged_plastic_waste_per_cap &lt;dbl&gt;,
+## #   mismanaged_plastic_waste &lt;dbl&gt;, coastal_pop &lt;dbl&gt;, total_pop &lt;dbl&gt;</code></pre>
+<p>Did you expect this result?</p>
+<p>You might consider doing some research on Trinidad and Tobago to see why plastic waste per capita is so high there, or whether this is a data error.</p>
+<hr />
+<ol start="4" style="list-style-type: decimal">
+<li>Plot, using histograms, the distribution of plastic waste per capita faceted by continent. What can you say about how the continents compare to each other in terms of their plastic waste per capita?</li>
+</ol>
+<hr />
+<ul>
+<li><strong>NOTE:</strong> From this point onwards the plots and the output of the code are not displayed in the lab instructions, but you can and should code and view the results yourself.</li>
+</ul>
+<p>Another way of visualizing numerical data is using density plots.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plastic_waste, <span class="fu">aes</span>(<span class="at">x =</span> plastic_waste_per_cap)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
+<p><img src="mod-02-plastic-waste_files/figure-html/plastic_waste_per_cap-dens-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>And compare distributions across continents by coloring density curves by continent.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plastic_waste, </span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> plastic_waste_per_cap, </span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>                     <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
+<p><img src="mod-02-plastic-waste_files/figure-html/plastic_waste_per_cap-dens-color-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>The resulting plot may be a little difficult to read, so let’s also fill the curves in with colours as well.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plastic_waste, </span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> plastic_waste_per_cap, </span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>                     <span class="at">color =</span> continent, </span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>                     <span class="at">fill =</span> continent)) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
+<p><img src="mod-02-plastic-waste_files/figure-html/plastic_waste_per_cap-dens-color-fill-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>The overlapping colors make it difficult to tell what’s happening with the distributions in continents plotted first, and hence covered by continents plotted over them.</p>
+<p>We can change the transparency level of the fill color to help with this.
+The <code>alpha</code> argument takes values between 0 and 1: 0 is completely transparent and 1 is completely opaque.</p>
+<p>There is no way to tell what value will work best, so you just need to try a few.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plastic_waste, </span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> plastic_waste_per_cap, </span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>                     <span class="at">color =</span> continent, </span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>                     <span class="at">fill =</span> continent)) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>)</span></code></pre></div>
+<p><img src="mod-02-plastic-waste_files/figure-html/plastic_waste_per_cap-dens-color-fill-alpha-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>This still doesn’t look great…</p>
+<hr />
+<ol start="5" style="list-style-type: decimal">
+<li>Recreate the density plots above using a different (lower) alpha level that works better for displaying the density curves for all continents.</li>
+</ol>
+<hr />
+<ol start="6" style="list-style-type: decimal">
+<li>Describe why we defined the <code>color</code> and <code>fill</code> of the curves by mapping aesthetics of the plot but we defined the <code>alpha</code> level as a characteristic of the plotting geom.</li>
+</ol>
+<p>🧶 ✅ <em>Now is a good time to save and knit your document and confirm the outputs look as you expect them to.</em></p>
+<hr />
+<p>And yet another way to visualize this relationship is using side-by-side box plots.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plastic_waste, </span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> continent, </span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>                     <span class="at">y =</span> plastic_waste_per_cap)) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="mod-02-plastic-waste_files/figure-html/plastic_waste_per_cap-box-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<hr />
+<ol start="7" style="list-style-type: decimal">
+<li>Convert your side-by-side box plots from the previous task to <a href="http://ggplot2.tidyverse.org/reference/geom_violin.html">violin plots</a>. What do the violin plots reveal that box plots do not? What features are apparent in the box plots but not in the violin plots?</li>
+</ol>
+<hr />
+<ol start="8" style="list-style-type: decimal">
+<li>Visualize the relationship between plastic waste per capita and mismanaged plastic waste per capita using a scatterplot. Describe the relationship.</li>
+</ol>
+<p><strong>Remember:</strong> We use <code>geom_point()</code> to make scatterplots.</p>
+<hr />
+<ol start="9" style="list-style-type: decimal">
+<li>Color the points in the scatterplot by continent. Does there seem to be any clear distinctions between continents with respect to how plastic waste per capita and mismanaged plastic waste per capita are associated?</li>
+</ol>
+<hr />
+<ol start="10" style="list-style-type: decimal">
+<li>Visualize the relationship between plastic waste per capita and total population as well as plastic waste per capita and coastal population. You will need to make two separate plots. Do either of these pairs of variables appear to be more strongly linearly associated?</li>
+</ol>
+<p>🧶 ✅ <em>Now is a good time to save and knit your document and confirm the outputs look as you expect them to.</em></p>
+<hr />
+</div>
+<div id="wrapping-up" class="section level1">
+<h1>Wrapping up</h1>
+<ol start="11" style="list-style-type: decimal">
+<li>Recreate the following plot, and interpret what you see in context of the data.</li>
+</ol>
+<p><img src="mod-02-plastic-waste_files/figure-html/unnamed-chunk-1-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><strong>Hint:</strong> The x-axis is a calculated variable. One country with plastic waste per capita over 3 kg/day has been filtered out. And the data are not only represented with points on the plot but also a smooth curve. The term “smooth” should help you <a href="https://ggplot2.tidyverse.org/reference/index.html#section-geoms">pick which geom to use</a>.</p>
+<hr />
+</div>
+<div id="submitting-your-work" class="section level1">
+<h1>Submitting your work</h1>
+<p>Once you are happy with the final state of your work, change the YAML <code>output</code> from <code>html_output</code> to <code>pdf_output.</code> Now knit the document to produce a final PDF file. Upload the PDF to the Canvas assignment.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
