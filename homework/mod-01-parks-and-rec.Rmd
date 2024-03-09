@@ -28,9 +28,15 @@ The goal of this assignment is to introduce you to R, RStudio, and integration w
 
 # Getting started
 
-## Prerequisites {data-link="Prerequisites"}
+## Starting slow
 
-This assignment assumes that you have completed all the steps in the Canvas pages: "How to set up and access Posit Cloud" and on "How to prepare and submit a submission in Posit Cloud for Canvas." If you haven't yet done so, please pause and complete it before continuing.
+As the course progresses, you are encouraged to explore beyond what the assignments dictate; a willingness to experiment will make you a much better programmer!
+
+Before we get to that stage, however, you need to build some basic fluency in R.
+
+First, we will explore the fundamental building blocks of R and RStudio.
+
+Before you can get started with the analysis, you need to make sure **you are set up in the Posit Cloud space; to do so, stop now and go to the Canvas page "How to set up and access Posit Cloud" and follow the instructions there.**  
 
 ## Terminology
 
@@ -43,29 +49,11 @@ We've already thrown around a few new terms, so let's define them before we proc
 
 -   **Posit Cloud** The online service for accessing RStudio. 
 
-    -   In this course, assignment instructions you work on (HWs, Labs, Exams) will be available on Canvas. The "starter" documents needed to complete each assignment will also be available on Posit Cloud.
-    
-## Starting slow
-
-As the course progresses, you are encouraged to explore beyond what the assignments dictate; a willingness to experiment will make you a much better programmer!
-Before we get to that stage, however, you need to build some basic fluency in R.
-First, we will explore the fundamental building blocks of R and RStudio.
-
-Before you can get started with the analysis, you need to make sure you:
-
--   you are set up in the Posit Cloud space; if you are not, then you did not complete the prerequisite for this assignment. Please go back to [Prerequisites] and complete it.
-
 # Workflow
 
-```{marginfigure}
-All documents you will access and create in Posit Cloud/RStudio are known as R Notebooks. An R Notebook is a type of document that combines R code with ordinary text and graphics, allowing you to write, run, and see the results of your R code alongside commentary and analysis. It's a powerful tool for data analysis and visualization, making it easy to compile your findings, code, and charts in one interactive and easy-to-share document. 
-```
+Lets walk through some of the steps that will get you ready for analysis.
 
-For each assignment in this course you will go to a shared folder in Posit Cloud that contains starter documents. You will build upon this document when working on your assignment. In Posit Cloud/RStudio you will edit them, run them, view your results, and interpret them. In other words, all data analysis will happen in Posit Cloud/RStudio. 
-
-Lets walk through some of the steps that will get you ready for analysis. 
-
-# Hello RStudio!
+## Hello RStudio!
 
 Go to [rstudio.cloud](https://rstudio.cloud/ "RStudio Cloud") and then **navigate to the course workspace** via the left sidebar. 
 
@@ -73,16 +61,23 @@ Go to [rstudio.cloud](https://rstudio.cloud/ "RStudio Cloud") and then **navigat
 R packages are add-ons for the R programming language, providing extra functions and tools for tasks like data analysis and visualization. They're like apps you install to expand R's abilities, with thousands available on CRAN (Comprehensive R Archive Network) for various uses, from plotting charts to statistical testing, simplifying complex operations.
 ```
 
+-   Look for the workspace called "Behavioral Data Science Online Spring 2024"
 -   It's only when you're in the course workspace that you'll be able to benefit from R packages I've pre-installed for you so that your project can be configured correctly.
--   It's only when you're in the course workspace that your usage of Posit 
-Cloud won't count towards the free usage limits.
-Before you proceed, confirm that you are in the course workspace by checking out what's on your top bar in Posit Cloud.
+-   Before you proceed, confirm that you are in the course workspace by checking out what's on your top bar in Posit Cloud.
 
 ```{r course-workspace, echo = FALSE, eval = TRUE, fig.align = "center"}
 knitr::include_graphics("img/course-workspace.png")
 ```
 
+## Access Projects
+
+For each assignment for each module there will be what is called an "RStudio Project." 
+
+If you look now, there should be a project available to you called: **Assignments: Module 1.** Go ahead and open it. 
+
 ## RStudio Layout
+
+You are now in Posit Cloud/RStudio. It is here where you will edit documents, run code, view your results, and interpret them. Basically, everything you need to do data science is contained here. Now, time to get familiar with the layout. 
 
 RStudio is comprised of four panes.
 
@@ -90,10 +85,27 @@ RStudio is comprised of four panes.
 knitr::include_graphics("img/rstudio-anatomy-new.png")
 ```
 
+```{marginfigure}
+Your background might be white. You can change from dark to light in Tools > Global Options > Appearance if you like. 
+```
+
 -   On the bottom left is the Console, this is where you can write code that will be evaluated. Try typing `2 + 2` here and hit enter, what do you get?
 -   On the bottom right is the Files pane, as well as other panes that will come handy as we start our analysis.
 -   If you click on a file, it will open in the editor, on the top left pane.
 -   Finally, the top right pane shows your Environment. If you define a variable it would show up there. Try typing `x <- 2` in the Console and hit enter, what do you get in the **Environment** pane? 
+
+## Starter Files
+
+```{marginfigure}
+All documents you will access and create in Posit Cloud/RStudio are known as R Notebooks. An R Notebook is a type of document that combines R code with ordinary text and graphics, allowing you to write, run, and see the results of your R code alongside commentary and analysis. It's a powerful tool for data analysis and visualization, making it easy to compile your findings, code, and charts in one interactive and easy-to-share document.
+```
+
+In the Files pane you should see these two R Notebooks:
+
+- mod-01-lab.Rmd
+- mod-01-hw.Rmd
+
+Go ahead and open up `mod-01-lab.Rmd`. This is your "starter file" for this assignment. You will build upon this document as you work on the exercises in this assignment. When you are done, you will generate a PDF from this document and submit it on Canvas. More on that later. 
 
 # Warm up
 
@@ -105,7 +117,7 @@ The top portion of your R Markdown document (between the three dashed lines) is 
 
 ## Step 1. Update the YAML
 
-Open the R Markdown (Rmd) file in your project, change the author name to your name. And go ahead and put in today's date. 
+Assuming `mod-01-lab.Rmd` is open, change the author name to your name at the very top. And go ahead and put in today's date. You've just edited the metadata for this Notebook. 
 
 ```{r yaml-raw-to-rendered, echo = FALSE, eval = TRUE, fig.align = "center"}
 knitr::include_graphics("img/yaml-raw-to-rendered-new.png")

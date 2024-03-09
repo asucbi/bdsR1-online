@@ -166,9 +166,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The goal of this assignment is to introduce you to R, RStudio, and integration with Canvas, which you’ll be using throughout the course both to learn the data science concepts discussed in the course and to analyze real data and come to informed conclusions.</p>
 <div id="getting-started" class="section level1">
 <h1>Getting started</h1>
-<div id="prerequisites" class="section level2" data-link="Prerequisites">
-<h2>Prerequisites</h2>
-<p>This assignment assumes that you have completed all the steps in the Canvas pages: “How to set up and access Posit Cloud” and on “How to prepare and submit a submission in Posit Cloud for Canvas.” If you haven’t yet done so, please pause and complete it before continuing.</p>
+<div id="starting-slow" class="section level2">
+<h2>Starting slow</h2>
+<p>As the course progresses, you are encouraged to explore beyond what the assignments dictate; a willingness to experiment will make you a much better programmer!</p>
+<p>Before we get to that stage, however, you need to build some basic fluency in R.</p>
+<p>First, we will explore the fundamental building blocks of R and RStudio.</p>
+<p>Before you can get started with the analysis, you need to make sure <strong>you are set up in the Posit Cloud space; to do so, stop now and go to the Canvas page “How to set up and access Posit Cloud” and follow the instructions there.</strong></p>
 </div>
 <div id="terminology" class="section level2">
 <h2>Terminology</h2>
@@ -177,59 +180,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>R:</strong> Name of the programming language we will be using throughout the course.</p></li>
 <li><p><strong>RStudio:</strong> An integrated development environment for R.
 In other words, a convenient interface for writing and running R code.</p></li>
-<li><p><strong>Posit Cloud</strong> The online service for accessing RStudio.</p>
-<ul>
-<li>In this course, assignment instructions you work on (HWs, Labs, Exams) will be available on Canvas. The “starter” documents needed to complete each assignment will also be available on Posit Cloud.</li>
-</ul></li>
-</ul>
-</div>
-<div id="starting-slow" class="section level2">
-<h2>Starting slow</h2>
-<p>As the course progresses, you are encouraged to explore beyond what the assignments dictate; a willingness to experiment will make you a much better programmer!
-Before we get to that stage, however, you need to build some basic fluency in R.
-First, we will explore the fundamental building blocks of R and RStudio.</p>
-<p>Before you can get started with the analysis, you need to make sure you:</p>
-<ul>
-<li>you are set up in the Posit Cloud space; if you are not, then you did not complete the prerequisite for this assignment. Please go back to <a href="#prerequisites">Prerequisites</a> and complete it.</li>
+<li><p><strong>Posit Cloud</strong> The online service for accessing RStudio.</p></li>
 </ul>
 </div>
 </div>
 <div id="workflow" class="section level1">
 <h1>Workflow</h1>
-<p><label for="tufte-mn-1" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle"><span class="marginnote"><span style="display: block;">All documents you will access and create in Posit Cloud/RStudio are
-known as R Notebooks. An R Notebook is a type of document that combines
-R code with ordinary text and graphics, allowing you to write, run, and
-see the results of your R code alongside commentary and analysis. It’s a
-powerful tool for data analysis and visualization, making it easy to
-compile your findings, code, and charts in one interactive and
-easy-to-share document.</span></span></p>
-<p>For each assignment in this course you will go to a shared folder in Posit Cloud that contains starter documents. You will build upon this document when working on your assignment. In Posit Cloud/RStudio you will edit them, run them, view your results, and interpret them. In other words, all data analysis will happen in Posit Cloud/RStudio.</p>
 <p>Lets walk through some of the steps that will get you ready for analysis.</p>
-</div>
-<div id="hello-rstudio" class="section level1">
-<h1>Hello RStudio!</h1>
+<div id="hello-rstudio" class="section level2">
+<h2>Hello RStudio!</h2>
 <p>Go to <a href="https://rstudio.cloud/" title="RStudio Cloud">rstudio.cloud</a> and then <strong>navigate to the course workspace</strong> via the left sidebar.</p>
-<p><label for="tufte-mn-2" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle"><span class="marginnote"><span style="display: block;">R packages are add-ons for the R programming language, providing
+<p><label for="tufte-mn-1" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle"><span class="marginnote"><span style="display: block;">R packages are add-ons for the R programming language, providing
 extra functions and tools for tasks like data analysis and
 visualization. They’re like apps you install to expand R’s abilities,
 with thousands available on CRAN (Comprehensive R Archive Network) for
 various uses, from plotting charts to statistical testing, simplifying
 complex operations.</span></span></p>
 <ul>
+<li>Look for the workspace called “Behavioral Data Science Online Spring 2024”</li>
 <li>It’s only when you’re in the course workspace that you’ll be able to benefit from R packages I’ve pre-installed for you so that your project can be configured correctly.</li>
-<li>It’s only when you’re in the course workspace that your usage of Posit
-Cloud won’t count towards the free usage limits.
-Before you proceed, confirm that you are in the course workspace by checking out what’s on your top bar in Posit Cloud.</li>
+<li>Before you proceed, confirm that you are in the course workspace by checking out what’s on your top bar in Posit Cloud.</li>
 </ul>
 <p><img src="img/course-workspace.png" width="80%"  style="display: block; margin: auto;" /></p>
+</div>
+<div id="access-projects" class="section level2">
+<h2>Access Projects</h2>
+<p>For each assignment for each module there will be what is called an “RStudio Project.”</p>
+<p>If you look now, there should be a project available to you called: <strong>Assignments: Module 1.</strong> Go ahead and open it.</p>
+</div>
 <div id="rstudio-layout" class="section level2">
 <h2>RStudio Layout</h2>
+<p>You are now in Posit Cloud/RStudio. It is here where you will edit documents, run code, view your results, and interpret them. Basically, everything you need to do data science is contained here. Now, time to get familiar with the layout.</p>
 <p>RStudio is comprised of four panes.</p>
 <div class="figure fullwidth">
 <img src="img/rstudio-anatomy-new.png" alt=" " width="80%"  />
 <p class="caption marginnote shownote">
 </p>
 </div>
+<p><label for="tufte-mn-2" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle"><span class="marginnote"><span style="display: block;">Your background might be white. You can change from dark to light in
+Tools &gt; Global Options &gt; Appearance if you like.</span></span></p>
 <ul>
 <li>On the bottom left is the Console, this is where you can write code that will be evaluated. Try typing <code>2 + 2</code> here and hit enter, what do you get?</li>
 <li>On the bottom right is the Files pane, as well as other panes that will come handy as we start our analysis.</li>
@@ -237,11 +226,27 @@ Before you proceed, confirm that you are in the course workspace by checking out
 <li>Finally, the top right pane shows your Environment. If you define a variable it would show up there. Try typing <code>x &lt;- 2</code> in the Console and hit enter, what do you get in the <strong>Environment</strong> pane?</li>
 </ul>
 </div>
+<div id="starter-files" class="section level2">
+<h2>Starter Files</h2>
+<p><label for="tufte-mn-3" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle"><span class="marginnote"><span style="display: block;">All documents you will access and create in Posit Cloud/RStudio are
+known as R Notebooks. An R Notebook is a type of document that combines
+R code with ordinary text and graphics, allowing you to write, run, and
+see the results of your R code alongside commentary and analysis. It’s a
+powerful tool for data analysis and visualization, making it easy to
+compile your findings, code, and charts in one interactive and
+easy-to-share document.</span></span></p>
+<p>In the Files pane you should see these two R Notebooks:</p>
+<ul>
+<li>mod-01-lab.Rmd</li>
+<li>mod-01-hw.Rmd</li>
+</ul>
+<p>Go ahead and open up <code>mod-01-lab.Rmd</code>. This is your “starter file” for this assignment. You will build upon this document as you work on the exercises in this assignment. When you are done, you will generate a PDF from this document and submit it on Canvas. More on that later.</p>
+</div>
 </div>
 <div id="warm-up" class="section level1">
 <h1>Warm up</h1>
 <p>Before we introduce the data, let’s warm up with some simple exercises.</p>
-<p><label for="tufte-mn-3" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle"><span class="marginnote"><span style="display: block;">The top portion of your R Markdown document (between the three dashed
+<p><label for="tufte-mn-4" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle"><span class="marginnote"><span style="display: block;">The top portion of your R Markdown document (between the three dashed
 lines) is called <strong>YAML</strong>. It stands for “YAML Ain’t Markup
 Language”. It contains metadata (settings and information about the
 notebook itself). It’s used to specify things like the title, author,
@@ -251,13 +256,13 @@ ensuring that the document is formatted and behaves as intended when
 it’s compiled or shared.</span></span></p>
 <div id="step-1.-update-the-yaml" class="section level2">
 <h2>Step 1. Update the YAML</h2>
-<p>Open the R Markdown (Rmd) file in your project, change the author name to your name. And go ahead and put in today’s date.</p>
+<p>Assuming <code>mod-01-lab.Rmd</code> is open, change the author name to your name at the very top. And go ahead and put in today’s date. You’ve just edited the metadata for this Notebook.</p>
 <p><img src="img/yaml-raw-to-rendered-new.png" width="80%"  style="display: block; margin: auto;" /></p>
 </div>
 <div id="step-2-knit-it" class="section level2">
 <h2>Step 2: Knit it!</h2>
 <p>Now, look for that little button at the top called “Knit” (in the image below, it’s bounded in the red box). When you click it, you’ll see some some activity under the <strong>Render</strong> tab in the Console pane and a beautiful notebook (similar to what you’re reading now) will appear in the bottom-right Console pane under the <strong>Viewer</strong> tab.</p>
-<p><label for="tufte-mn-4" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle"><span class="marginnote"><span style="display: block;">When you knit for the first time, your browser might get upset if you
+<p><label for="tufte-mn-5" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-5" class="margin-toggle"><span class="marginnote"><span style="display: block;">When you knit for the first time, your browser might get upset if you
 have an ad blocker on. Watch my video “How to prepare and submit a
 submission in Posit Cloud for Canvas” in the Module “Important Resources
 and HOWTOs” if you’re having trouble.</span></span></p>
@@ -285,12 +290,12 @@ You should also load these packages in your Console, which you can do by sending
 </div>
 <div id="data" class="section level1">
 <h1>Data</h1>
-<p><label for="tufte-mn-5" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-5" class="margin-toggle"><span class="marginnote"><span style="display: block;"><a href="https://www.imdb.com/">IMBD</a> is a community-led online
+<p><label for="tufte-mn-6" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-6" class="margin-toggle"><span class="marginnote"><span style="display: block;"><a href="https://www.imdb.com/">IMBD</a> is a community-led online
 database for information related to films and television. One of the
 features is “User Ratings” that allows people to rate each episode on a
 scale from 1 to 10 (with 10 being the highest possible score).</span></span></p>
 <p>The data we will be working with is all about the show <a href="https://en.wikipedia.org/wiki/Parks_and_Recreation">‘Parks and Recreation,’</a> a popular mockumentary style sitcom that ran from 2009-2015. The dataset contains some information about every episode from every season, and we will be focusing on which characters were mentioned in each episode’s brief description on IMDB. We also have the average IMDB user rating for each episode, but that is for another day.</p>
-<p><label for="tufte-mn-6" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-6" class="margin-toggle"><span class="marginnote"><span style="display: block;">NOTE: ‘parks_rec’ is derived from a much more complete dataset that
+<p><label for="tufte-mn-7" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-7" class="margin-toggle"><span class="marginnote"><span style="display: block;">NOTE: ‘parks_rec’ is derived from a much more complete dataset that
 someone posted to the site <a href="http://kaggle.com">Kaggle.com</a>.
 Kaggle is a great online resource for aspiring and seasoned data
 scientists where lots of interesting datasets are provided by a large,
@@ -303,7 +308,7 @@ When you run this in the console, you’ll see the following <strong>data viewer
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">View</span>(parks_rec)</span></code></pre></div>
 <p><img src="img/view-data-new.png" width="80%"  style="display: block; margin: auto auto auto 0;" /></p>
 <p>If you hover over description of each episode in the data viewer you can see the full description.</p>
-<p><label for="tufte-mn-7" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-7" class="margin-toggle"><span class="marginnote"><span style="display: block;">In the R programming language, using ? followed by a function or
+<p><label for="tufte-mn-8" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-8" class="margin-toggle"><span class="marginnote"><span style="display: block;">In the R programming language, using ? followed by a function or
 dataset name is a quick and efficient way to access help documentation.
 This feature is crucial for both beginners and experienced users because
 it provides immediate explanations, usage examples, and details about
@@ -325,7 +330,7 @@ various tools and data within R.</span></span></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Who are the three most mentioned show characters across all seasons? To do this you will need to count the frequencies of each character and display the results in descending order of frequency so that you can easily see the top three most mentioned characters. The following code does exactly that.</li>
 </ol>
-<p><label for="tufte-mn-8" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-8" class="margin-toggle"><span class="marginnote"><span style="display: block;">The two lines of code can be read as “Start with the parks_rec data
+<p><label for="tufte-mn-9" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-9" class="margin-toggle"><span class="marginnote"><span style="display: block;">The two lines of code can be read as “Start with the parks_rec data
 frame, and then count the number of times each unique character shows
 up, and display the results sorted in descending order.” The ‘and then’
 in the previous sentence maps to %&gt;%, the pipe operator, which takes
@@ -386,11 +391,11 @@ function that comes after it.</span></span></p>
 <span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>  <span class="fu">count</span>(<span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>🧶 ✅ <em>Write your answer in your R Markdown starter document under Exercise 4, knit the document as a “html_document” (default output in the YAML).</em></p>
 <p>Now knowing there there are a different number of episodes for each season, looking at the raw count of how many times a character is mentioned across episodes does not really allow us to compare across seasons. For example, Leslie appears 6 times in Season 1, but 21 times in Season 5. But from our analysis, we know there are only 6 total episodes in Season 1, and she is featured in 100% of them (<code>6/6 = 1.0</code>). This is similar to the 95.45% (<code>21/22 = 0.95</code>) of episodes she is featured in for Season 5.</p>
-<p><label for="tufte-mn-9" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-9" class="margin-toggle"><span class="marginnote"><span style="display: block;">Clearly Leslie is the focus of the show! Most of the plots involve
+<p><label for="tufte-mn-10" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-10" class="margin-toggle"><span class="marginnote"><span style="display: block;">Clearly Leslie is the focus of the show! Most of the plots involve
 her in some featured way.</span></span></p>
 <p>The following visualization compares Leslie’s mentions to some of the more mid-tier characters, taking proportion of overall episodes into account.</p>
 <div class="figure fullwidth">
-<img src="mod-01-parks-and-rec_files/figure-html/unnamed-chunk-15-1.png" alt=" " width="80%"  />
+<img src="mod-01-parks-and-rec_files/figure-html/unnamed-chunk-16-1.png" alt=" " width="80%"  />
 <p class="caption marginnote shownote">
 </p>
 </div>
