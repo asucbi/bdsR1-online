@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>HW 02 - Phoenix city employee salaries</title>
+
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<link href="site_libs/tufte-css-2015.12.29/tufte-fonts.css" rel="stylesheet" />
+<link href="site_libs/tufte-css-2015.12.29/tufte-background.css" rel="stylesheet" />
+<link href="site_libs/tufte-css-2015.12.29/tufte-italics.css" rel="stylesheet" />
+<link href="site_libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="assets/hw.css" type="text/css" />
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">HW 02 - Phoenix city employee salaries</h1>
+
+
+
+<p>
+<span class="marginnote shownote">
+<!--
+<div class="figure">-->
+<img src="img/1024px-phx-city.jpg" alt="Photo of Phoenix, AZ from WikiMedia Commons" width="80%"  />
+<!--
+<p class="caption marginnote">-->Photo of Phoenix, AZ from WikiMedia Commons<!--</p>-->
+<!--</div>--></span>
+</p>
+<!-- Note: data from https://data.world/city-of-phoenix/2b41f4f8-fe6f-48d3-8097-ad44ee5bd616 -->
+<p>The City of Phoenix employs thousands of people to perform different jobs. How much does it pay them individually and in total for different departments and jobs? The priorities of a government can be shown through how it dedicates its money and personnel.</p>
+<div id="getting-started" class="section level1">
+<h1>Getting started</h1>
+<p>First, open the R Markdown document <code>mod-02-hw.Rmd</code> and knit it.</p>
+<p>Make sure it compiles without errors. The output will be in the <code>.html</code> file with the same name.</p>
+<div id="warm-up" class="section level2">
+<h2>Warm up</h2>
+<p>Before we introduce the data, let’s warm up by setting up your individual document for these exercises.</p>
+<ul>
+<li>Update the YAML, changing the author name to your name, save and <strong>knit</strong> the document.</li>
+</ul>
+</div>
+<div id="packages" class="section level2">
+<h2>Packages</h2>
+<p>We’ll use the <strong>tidyverse</strong> packages for much of the data wrangling and visualization.
+These packages are already installed for you.
+You can load them by running the following in your Console:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+</div>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>The data can be found in <code>data</code> folder and read in with the following command.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>phxsal <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/phx-salaries.csv&quot;</span>)</span></code></pre></div>
+<p>This data includes the salary information for every current Phoenix city employee in departments employing more than 250 people.</p>
+<p>You can view the dataset like a spreadsheet using the <code>View()</code> function.
+Note that you should <strong>not</strong> put this function in your R Markdown document, but instead type it directly in the Console, as it pops open a new window (and the concept of popping open a window in a static document doesn’t really make sense…).
+When you run this in the console, you’ll see the following <strong>data viewer</strong> window pop up.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">View</span>(phxsal)</span></code></pre></div>
+<p>You can also view the data with the <code>head()</code> and <code>glimpse()</code> functions. These are more appropriate if you’d like to show a subset of the data itself in a notebook or report.</p>
+</div>
+</div>
+<div id="exercises" class="section level1">
+<h1>Exercises</h1>
+<p><label for="tufte-mn-1" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>Hint:</strong> The Markdown Quick Reference sheet has an
+example of inline R code that might be helpful. You can access it from
+the Help menu in RStudio.</span></span></p>
+<ol style="list-style-type: decimal">
+<li>How many observations (rows) does the dataset have? Instead of hard coding the number in your answer, use inline code.</li>
+<li>Run <code>View(phxsal)</code> in your Console to view the data in the data viewer. What does each row in the dataset represent?</li>
+<li>Show a bit of the data in your report so that readers can see the important variables. You can use either <code>head()</code> or <code>glimpse()</code> depending on which you prefer.</li>
+</ol>
+<p>🧶 ✅ ⬆️ <em>Now is a good time to save and knit your document and confirm the outputs look as you expect them to.</em></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Create a faceted histogram where each facet represents a department and displays the distribution of salaries for employees working in that department. Think critically about whether it makes more sense to stack the facets on top of each other in a column, lay them out in a row, or wrap them around. Along with your visualization, include your reasoning for the layout you chose for your facets.</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ___, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ___)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> ___) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>___)</span></code></pre></div>
+<p>Let’s de-construct this code:</p>
+<ul>
+<li><code>ggplot()</code> is the function we are using to build our plot, in layers.</li>
+<li>In the first layer we always define the data frame as the first argument. Then, we define the mappings between the variables in the dataset and the <strong>aes</strong>thetics of the plot (e.g. x and y coordinates, colours, etc.).</li>
+<li>In the next layer we represent the data with <strong>geom</strong>etric shapes, in this case with a histogram. You should decide what makes a reasonable bin width for the histogram by trying out a few options.</li>
+<li>In the final layer we facet the data by department</li>
+</ul>
+<p>🧶 ✅ ⬆️ <em>Now is a good time to save and knit your document and confirm the outputs look as you expect them to.</em></p>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Use a single pipeline to identity the city departments with the top five median salaries. Then, in another pipeline filter the data for these five departments and make ridge plots of the distributions of salaries in these five departments. In a third pipeline, calculate the minimum, mean, median, standard deviation, IQR, and maximum salary in each of these departments. Use the visualization and the summary statistics to describe the distribution of salaries in the departments (Your answer will include three pipelines with visible outputs, one of which ends in a visualization, as well as a narrative.)</p></li>
+<li><p>Create three visualizations that will help you compare the distribution of employees’ regular-time, overtime, and total weekly hours worked (<code>regular_hours</code>, <code>overtime_hours</code>, and <code>total_hours</code>) across departments. You get to decide what type of visualizations to create and there is more than one correct answer! In your answer, include a brief interpretation of how departments appear to operate and how they compare to each other in terms of work schedules.</p></li>
+</ol>
+</div>
+<div id="submitting-your-work" class="section level1">
+<h1>Submitting your work</h1>
+<p>Once you are happy with the final state of your work, change the YAML <code>output</code> from <code>html_output</code> to <code>pdf_output.</code> Now knit the document to produce a final PDF file. Upload the PDF to the Canvas assignment.</p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

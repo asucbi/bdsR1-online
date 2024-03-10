@@ -1,0 +1,108 @@
+---
+title: "Lab 02 - Plastic Pollution"
+author: "Insert your name here"
+date: "Insert date here"
+output: html_document
+---
+
+## Packages
+
+We'll use the **tidyverse** package for this analysis.
+Run the following code in the Console to load this package.
+
+```{r load-packages, message=FALSE, warning=FALSE, eval=TRUE}
+library(tidyverse)
+```
+
+## Data
+
+The dataset for this assignment can be found as a csv file in the `data` folder of your repository.
+
+You can read it in using the following.
+
+```{r load-data, message=FALSE, eval=TRUE}
+plastic_waste <- read_csv("data/plastic-waste.csv")
+```
+
+
+# Warmup
+
+## Question 1 
+
+Remove this text and enter your answer here.
+
+## Exericse 2
+
+Remove this text and enter your answer here.
+
+## Exercise 3 
+
+Remove this text and enter your answer here.
+
+## Exercises
+
+## Question 4 
+
+```{r}
+## Remove these comments and add your code for the exercise here
+## Remember to label this code chunk (do not use spaces in the label name)
+## Where appropriate, be sure to write your answers to questions as text below
+```
+
+Remove this text and enter your answer here.
+
+## Question 5
+
+```{r}
+## Remove these comments and add your code for the exercise here
+## Remember to label this code chunk (do not use spaces in the label name)
+## Where appropriate, be sure to write your answers to questions as text below
+```
+
+
+## Question 6
+
+Remove this text and enter your answer here.
+
+## Question 7
+
+```{r}
+## Remove these comments and add your code for the exercise here
+## Remember to label this code chunk (do not use spaces in the label name)
+## Where appropriate, be sure to write your answers to questions as text below
+```
+
+## Question 8
+
+```{r}
+## Remove these comments and add your code for the exercise here
+## Remember to label this code chunk (do not use spaces in the label name)
+## Where appropriate, be sure to write your answers to questions as text below
+```
+
+## Question 9
+
+```{r}
+## Remove these comments and add your code for the exercise here
+## Remember to label this code chunk (do not use spaces in the label name)
+## Where appropriate, be sure to write your answers to questions as text below
+```
+
+## Question 10
+
+```{r}
+## Remove these comments and add your code for the exercise here
+## Remember to label this code chunk (do not use spaces in the label name)
+## Where appropriate, be sure to write your answers to questions as text below
+```
+
+
+# Bonus: 20 extra credit points if you can get this one! It's not that hard. You can do it! 
+
+## Question 11
+
+```{r}
+## Remove these comments and add your code for the exercise here
+## Remember to label this code chunk (do not use spaces in the label name)
+## Where appropriate, be sure to write your answers to questions as text below
+```

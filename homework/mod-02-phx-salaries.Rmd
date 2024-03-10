@@ -17,14 +17,13 @@ knitr::opts_chunk$set(
 knitr::include_graphics("img/1024px-phx-city.jpg")
 ```
 
-
 <!-- Note: data from https://data.world/city-of-phoenix/2b41f4f8-fe6f-48d3-8097-ad44ee5bd616 -->
 
 The City of Phoenix employs thousands of people to perform different jobs. How much does it pay them individually and in total for different departments and jobs? The priorities of a government can be shown through how it dedicates its money and personnel.
 
 # Getting started
 
-First, open the R Markdown document `hw-02.Rmd` and knit it.
+First, open the R Markdown document `mod-02-hw.Rmd` and knit it.
 
 Make sure it compiles without errors. The output will be in the `.html` file with the same name.
 
@@ -74,7 +73,7 @@ You can also view the data with the `head()` and `glimpse()` functions. These ar
 2.  Run `View(phxsal)` in your Console to view the data in the data viewer. What does each row in the dataset represent?
 3. Show a bit of the data in your report so that readers can see the important variables. You can use either `head()` or `glimpse()` depending on which you prefer.
 
-🧶 ✅ ⬆️  *Now is a good time to save and knit your document and confirm the outputs look as you expect them to.*
+🧶 ✅  *Now is a good time to save and knit your document and confirm the outputs look as you expect them to.*
 
 4.  Create a faceted histogram where each facet represents a department and displays the distribution of salaries for employees working in that department. Think critically about whether it makes more sense to stack the facets on top of each other in a column, lay them out in a row, or wrap them around. Along with your visualization, include your reasoning for the layout you chose for your facets.
 
@@ -91,7 +90,7 @@ Let's de-construct this code:
 -   In the next layer we represent the data with **geom**etric shapes, in this case with a histogram. You should decide what makes a reasonable bin width for the histogram by trying out a few options.
 -   In the final layer we facet the data by department
 
-🧶 ✅ ⬆️  *Now is a good time to save and knit your document and confirm the outputs look as you expect them to.*
+🧶 ✅  *Now is a good time to save and knit your document and confirm the outputs look as you expect them to.*
 
 5.  Use a single pipeline to identity the city departments with the top five median salaries. Then, in another pipeline filter the data for these five departments and make ridge plots of the distributions of salaries in these five departments. In a third pipeline, calculate the minimum, mean, median, standard deviation, IQR, and maximum salary in each of these departments. Use the visualization and the summary statistics to describe the distribution of salaries in the departments (Your answer will include three pipelines with visible outputs, one of which ends in a visualization, as well as a narrative.)
 

@@ -1,5 +1,5 @@
 ---
-title: "LAB 02 - Plastic waste"
+title: "LAB 02 - Plastic Pollution"
 params: 
     SHOW_SOLS: FALSE # if i wanted to give solutions, could toggle back on. 
     TOGGLE: TRUE
@@ -36,9 +36,9 @@ Additionally, National Geographic ran a data visualization communication contest
 
 # Getting started
 
-Go to the course RStudio Cloud Workspace and locate the folder for the lab assignment, which should be named `lab-02-plastic-waste`.
+Go to the course Posit Cloud workspace and locate the project for Module 2, which should be called "Assignments" Module 2". 
 
-First, open the R Markdown document `lab-02.Rmd` and Knit it.
+Next, open the R Markdown starter document for this assignment `mod-02-lab.Rmd` and Knit it.
 
 Make sure it compiles without errors and you can preview the output within the Viewer Pane.  
 
@@ -58,7 +58,7 @@ library(tidyverse)
 The dataset for this assignment can be found as a csv file in the `data` folder of your repository. You can read it in using the following.
 
 ```{r load-data, message=FALSE, eval=TRUE}
-plastic_waste <- read_csv("./data/plastic-waste.csv")
+plastic_waste <- read_csv("data/plastic-waste.csv")
 ```
 
 The variable descriptions are as follows:
@@ -79,12 +79,6 @@ The variable descriptions are as follows:
 # Warm up exercises
 
 1. Recall that RStudio is divided into four panes. Without looking, can you name them all and briefly describe their purpose?
-
-`r solbegin(show=params$SHOW_SOLS, toggle=params$TOGGLE)`
-
-The panes are called X, Y, Z, and Q!
-
-`r solend()`
 
 ---
 
@@ -157,7 +151,7 @@ ggplot(data = plastic_waste,
   geom_density()
 ```
 
-The resulting plot may be a little difficult to read, so let's also fill the curves in with colours as well.
+The resulting plot may be a little difficult to read, so let's also fill the curves in with colors as well.
 
 ```{r plastic_waste_per_cap-dens-color-fill}
 ggplot(data = plastic_waste, 
@@ -227,9 +221,13 @@ ggplot(data = plastic_waste,
 
 ---
 
-# Wrapping up
+# Bonus
 
 11. Recreate the following plot, and interpret what you see in context of the data.
+
+:::green
+20 extra credit points if you can get this one! It's not that hard. You can do it! 
+:::
 
 ```{r echo=FALSE, message=FALSE, eval=TRUE, warning=FALSE}
 plastic_waste %>% 

@@ -5,6 +5,15 @@ date: "Insert date here"
 output: html_document
 ---
 
+## Packages
+
+We'll use the **tidyverse** package for this analysis.
+Run the following code in the Console to load this package.
+
+```{r load-packages, message=FALSE, warning=FALSE, eval=TRUE}
+library(tidyverse)
+```
+
 ## Data
 
 The data can be found in `data` folder and read in with the following command.
