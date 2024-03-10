@@ -51,6 +51,10 @@ The data can be found in `data` folder and read in with the following command.
 phxsal <- read_csv("data/phx-salaries.csv")
 ```
 
+```{marginfigure}
+**Important:** "Salary" throughout this document can be interpreted either as total annual salary or base annual salary. 
+```
+
 This data includes the salary information for every current Phoenix city employee in departments employing more than 250 people.
 
 You can view the dataset like a spreadsheet using the `View()` function.
@@ -74,6 +78,10 @@ You can also view the data with the `head()` and `glimpse()` functions. These ar
 3. Show a bit of the data in your report so that readers can see the important variables. You can use either `head()` or `glimpse()` depending on which you prefer.
 
 🧶 ✅  *Now is a good time to save and knit your document and confirm the outputs look as you expect them to.*
+
+```{marginfigure}
+**Remember:** "Salary" can be interpreted either as total annual salary or base annual salary. 
+```
 
 4.  Create a faceted histogram where each facet represents a department and displays the distribution of salaries for employees working in that department. Think critically about whether it makes more sense to stack the facets on top of each other in a column, lay them out in a row, or wrap them around. Along with your visualization, include your reasoning for the layout you chose for your facets.
 

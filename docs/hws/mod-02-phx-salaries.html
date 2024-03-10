@@ -186,6 +186,8 @@ You can load them by running the following in your Console:</p>
 <h2>Data</h2>
 <p>The data can be found in <code>data</code> folder and read in with the following command.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>phxsal <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/phx-salaries.csv&quot;</span>)</span></code></pre></div>
+<p><label for="tufte-mn-1" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>Important:</strong> “Salary” throughout this document can be
+interpreted either as total annual salary or base annual salary.</span></span></p>
 <p>This data includes the salary information for every current Phoenix city employee in departments employing more than 250 people.</p>
 <p>You can view the dataset like a spreadsheet using the <code>View()</code> function.
 Note that you should <strong>not</strong> put this function in your R Markdown document, but instead type it directly in the Console, as it pops open a new window (and the concept of popping open a window in a static document doesn’t really make sense…).
@@ -196,7 +198,7 @@ When you run this in the console, you’ll see the following <strong>data viewer
 </div>
 <div id="exercises" class="section level1">
 <h1>Exercises</h1>
-<p><label for="tufte-mn-1" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>Hint:</strong> The Markdown Quick Reference sheet has an
+<p><label for="tufte-mn-2" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-2" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>Hint:</strong> The Markdown Quick Reference sheet has an
 example of inline R code that might be helpful. You can access it from
 the Help menu in RStudio.</span></span></p>
 <ol style="list-style-type: decimal">
@@ -204,7 +206,9 @@ the Help menu in RStudio.</span></span></p>
 <li>Run <code>View(phxsal)</code> in your Console to view the data in the data viewer. What does each row in the dataset represent?</li>
 <li>Show a bit of the data in your report so that readers can see the important variables. You can use either <code>head()</code> or <code>glimpse()</code> depending on which you prefer.</li>
 </ol>
-<p>🧶 ✅ ⬆️ <em>Now is a good time to save and knit your document and confirm the outputs look as you expect them to.</em></p>
+<p>🧶 ✅ <em>Now is a good time to save and knit your document and confirm the outputs look as you expect them to.</em></p>
+<p><label for="tufte-mn-3" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>Remember:</strong> “Salary” can be interpreted either as
+total annual salary or base annual salary.</span></span></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Create a faceted histogram where each facet represents a department and displays the distribution of salaries for employees working in that department. Think critically about whether it makes more sense to stack the facets on top of each other in a column, lay them out in a row, or wrap them around. Along with your visualization, include your reasoning for the layout you chose for your facets.</li>
 </ol>
@@ -218,7 +222,7 @@ the Help menu in RStudio.</span></span></p>
 <li>In the next layer we represent the data with <strong>geom</strong>etric shapes, in this case with a histogram. You should decide what makes a reasonable bin width for the histogram by trying out a few options.</li>
 <li>In the final layer we facet the data by department</li>
 </ul>
-<p>🧶 ✅ ⬆️ <em>Now is a good time to save and knit your document and confirm the outputs look as you expect them to.</em></p>
+<p>🧶 ✅ <em>Now is a good time to save and knit your document and confirm the outputs look as you expect them to.</em></p>
 <ol start="5" style="list-style-type: decimal">
 <li><p>Use a single pipeline to identity the city departments with the top five median salaries. Then, in another pipeline filter the data for these five departments and make ridge plots of the distributions of salaries in these five departments. In a third pipeline, calculate the minimum, mean, median, standard deviation, IQR, and maximum salary in each of these departments. Use the visualization and the summary statistics to describe the distribution of salaries in the departments (Your answer will include three pipelines with visible outputs, one of which ends in a visualization, as well as a narrative.)</p></li>
 <li><p>Create three visualizations that will help you compare the distribution of employees’ regular-time, overtime, and total weekly hours worked (<code>regular_hours</code>, <code>overtime_hours</code>, and <code>total_hours</code>) across departments. You get to decide what type of visualizations to create and there is more than one correct answer! In your answer, include a brief interpretation of how departments appear to operate and how they compare to each other in terms of work schedules.</p></li>
