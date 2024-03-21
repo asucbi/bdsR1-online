@@ -1,12 +1,9 @@
 ---
 title: "HW 03 - Car accidents"
-link-citations: yes
 ---
 
 ```{r include = FALSE}
 source("assets/setup.R")
-
-# Need to download "dsbox" for accessing original Edinburgh data Not on CRAN: devtools::install_github("rstudio-education/dsbox")
 ```
 
 ```{r photo, fig.margin = TRUE, echo = FALSE, fig.width = 3, fig.cap = "Photo by Clark Van Der Beken on Unsplash", eval = TRUE}
@@ -68,9 +65,15 @@ phx_accidents = left_join(phx_accidents_1, phx_accidents_2, by="id")
 
 # Exercises
 
+---
+
 1.  Create a code chunk (give it a sensible name) and join `phx_accidents_1` and `phx_accidents_2` datasets into a single dataset and call it `phx_accidents`. Be sure to join `by=` the common variable between the two datasets. 
 
+---
+
 1. What does each row in the joined dataset represent?
+
+---
 
 The variable (column) descriptions for the joined dataset are as follows. Read through them, try to get a sense of what you have available:
 
@@ -104,6 +107,8 @@ The variable (column) descriptions for the joined dataset are as follows. Read t
 phx_accidents <- phx_accidents %>% mutate(day_of_week_type = if_else(day_of_week %in% c("Sat", "Sun"), "Weekend", "Weekday"))
 ```
 
+---
+
 1.  Recreate the following plot, and describe in context of the data. In your answer, don't forget to label your R chunk as well (where it says `label-me-1`). Your label should be short, informative, shouldn't include spaces, and shouldn't shouldn't repeat a previous label.
 
 ```{r eval = TRUE, echo = FALSE, fig.fullwidth = TRUE}
@@ -131,6 +136,8 @@ phx_accidents %>%
   ___() +
   theme_minimal()
 ```
+
+---
 
 1.  Create another data visualization based on these data and provide a written interpretation. You can choose any variables and any type of visualization you like^[however,  no animated plots please], but it must have at least three variables, e.g. a scatterplot of x vs. y isn't enough, but if points are colored by z, that's fine. In your answer, don't forget to label your R chunk as well (where it says `label-me-2`).
 

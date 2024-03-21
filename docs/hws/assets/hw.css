@@ -119,6 +119,9 @@ pre {
  	padding-bottom: 1em;
  	padding-right: 5em;
  	padding-left: 1em;
+	/* white-space: pre-wrap;
+	word-wrap: break-word; */
+	overflow-wrap: break-word;
 }
 
 pre.r {
@@ -129,6 +132,7 @@ pre.r {
 code {
 	font-family: 'Source Code Pro', Consolas, "Liberation Mono", Menlo, Courier, monospace;
 	line-height: 1.6;
+	overflow-wrap: break-word;
 }
 
 .marginnote code,

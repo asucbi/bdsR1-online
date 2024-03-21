@@ -6,5 +6,3 @@ output:
     highlight: pygments
     self_contained: false
     css: assets/hw.css
-
-
