@@ -177,10 +177,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="packages" class="section level2">
 <h2>Packages</h2>
-<p>We’ll use the <strong>tidyverse</strong> packages for much of the data wrangling and visualization.
-These packages are already installed for you.
+<p>We’ll use the <strong>tidyverse</strong> packages for much of the data wrangling and visualization. We’ll also be using <code>ggridges</code> for one of the exercises so we can just add it now.</p>
+<p>These packages are already installed for you.
 You can load them by running the following in your Console:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span></code></pre></div>
 </div>
 <div id="data" class="section level2">
 <h2>Data</h2>
@@ -203,15 +204,24 @@ example of inline R code that might be helpful. You can access it from
 the Help menu in RStudio.</span></span></p>
 <ol style="list-style-type: decimal">
 <li>How many observations (rows) does the dataset have? Instead of hard coding the number in your answer, use inline code.</li>
+</ol>
+<hr />
+<ol start="2" style="list-style-type: decimal">
 <li>Run <code>View(phxsal)</code> in your Console to view the data in the data viewer. What does each row in the dataset represent?</li>
+</ol>
+<hr />
+<ol start="3" style="list-style-type: decimal">
 <li>Show a bit of the data in your report so that readers can see the important variables. You can use either <code>head()</code> or <code>glimpse()</code> depending on which you prefer.</li>
 </ol>
 <p>🧶 ✅ <em>Now is a good time to save and knit your document and confirm the outputs look as you expect them to.</em></p>
+<hr />
+<p>Let’s now jump into some visualizations. Here is the next exercise.</p>
 <p><label for="tufte-mn-3" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-3" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>Remember:</strong> “Salary” can be interpreted either as
 total annual salary or base annual salary.</span></span></p>
 <ol start="4" style="list-style-type: decimal">
-<li>Create a faceted histogram where each facet represents a department and displays the distribution of salaries for employees working in that department. Think critically about whether it makes more sense to stack the facets on top of each other in a column, lay them out in a row, or wrap them around. Along with your visualization, include your reasoning for the layout you chose for your facets.</li>
+<li><strong>PART 1:</strong> Create a faceted histogram where each facet represents a department and displays the distribution of salaries for employees working in that department. Think critically about whether it makes more sense to stack the facets on top of each other in a column, lay them out in a row, or wrap them around. <strong>PART 2:</strong> Along with your visualization, include your reasoning for the layout you chose for your facets.</li>
 </ol>
+<p>Before you jump in with an answer, keep reading as I give you some hints and help. Here is the code you should start with.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> ___, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ___)) <span class="sc">+</span></span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> ___) <span class="sc">+</span></span>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>___)</span></code></pre></div>
@@ -220,13 +230,55 @@ total annual salary or base annual salary.</span></span></p>
 <li><code>ggplot()</code> is the function we are using to build our plot, in layers.</li>
 <li>In the first layer we always define the data frame as the first argument. Then, we define the mappings between the variables in the dataset and the <strong>aes</strong>thetics of the plot (e.g. x and y coordinates, colours, etc.).</li>
 <li>In the next layer we represent the data with <strong>geom</strong>etric shapes, in this case with a histogram. You should decide what makes a reasonable bin width for the histogram by trying out a few options.</li>
-<li>In the final layer we facet the data by department</li>
+<li>In the final layer we facet the data by some variable (you need to specify which given the exercise instructions)</li>
 </ul>
 <p>🧶 ✅ <em>Now is a good time to save and knit your document and confirm the outputs look as you expect them to.</em></p>
+<hr />
+<p>Now, let’s dig deeper. Let’s describe the distribution of salaries in the Phoenix departments that pay the most! We’ll do that in the next series of four exercises:</p>
 <ol start="5" style="list-style-type: decimal">
-<li><p>Use a single pipeline to identity the city departments with the top five median salaries. Then, in another pipeline filter the data for these five departments and make ridge plots of the distributions of salaries in these five departments. In a third pipeline, calculate the minimum, mean, median, standard deviation, IQR, and maximum salary in each of these departments. Use the visualization and the summary statistics to describe the distribution of salaries in the departments (Your answer will include three pipelines with visible outputs, one of which ends in a visualization, as well as a narrative.)</p></li>
-<li><p>Create three visualizations that will help you compare the distribution of employees’ regular-time, overtime, and total weekly hours worked (<code>regular_hours</code>, <code>overtime_hours</code>, and <code>total_hours</code>) across departments. You get to decide what type of visualizations to create and there is more than one correct answer! In your answer, include a brief interpretation of how departments appear to operate and how they compare to each other in terms of work schedules.</p></li>
+<li>Using pipelines, identify the city departments with the top five median salaries.</li>
 </ol>
+<p><label for="tufte-mn-4" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle"><span class="marginnote"><span style="display: block;">I just wrote some pseudocode for you. Pseudocode is a way to write
+out the steps of a computer program using a combination of simple,
+easy-to-understand instructions and some programming language rules.</span></span></p>
+<p><em>Pseudocode for Exercise 5:</em></p>
+<ul>
+<li>Start with the dataset then pipe (%&gt;%) this into…
+<ul>
+<li>the group by function that will get department categories and then pipe (%&gt;%) this into…</li>
+<li>the summarize function to create a variable with the computed median salaries and then pipe (%&gt;%) this into…</li>
+<li>the arrange function that takes your new variable, present it in descending order</li>
+</ul></li>
+</ul>
+<p><label for="tufte-mn-5" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-5" class="margin-toggle"><span class="marginnote"><span style="display: block;">If you watched the lectures, you know what I mean by ridge plots.</span></span></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Using pipelines, filter the dataset to get just the five departments you identified earlier and make ridge plots of the distributions of salaries in these five departments.</li>
+</ol>
+<p><em>Pseudocode for Exercise 6:</em></p>
+<ul>
+<li>Start with the dataset then pipe (%&gt;%) this into…
+<ul>
+<li>a filter function that grabs all rows corresponding to the five departments then pipes (%&gt;%) this into…</li>
+<li>a ggplot that sets up total pay on the x-axis and department on y-axis then add (+)…</li>
+<li>the geom corresponding to density ridges</li>
+</ul></li>
+</ul>
+<ol start="7" style="list-style-type: decimal">
+<li>And finally, filter the dataset to get just the five departments you identified earlier (make use of some copy and pasting), then group by each department, and then <code>summarize</code> some new variables for minimum, mean, median, and maximum salary in each of these departments. Use the visualizations from earlier and the summary statistics to describe the distribution of salaries in the departments.</li>
+</ol>
+<p>To help you out, I’m showing you the top row of what you should be outputting:</p>
+<p><img src="img/data-partial.png" width="100%"  /></p>
+<hr />
+<p>Ok, moving on. Let’s now take a look at how various Phoenix departments distribute their employees’ regular-time, overtime, and total weekly hours worked. Whose working (too) hard?</p>
+<p>We can get at this with some nice and simple visualizations. Three of them, to be exact: one for <code>regular_hours</code>, one for <code>overtime_hours</code>, and one for <code>total_hours</code></p>
+<ol start="8" style="list-style-type: decimal">
+<li>Go ahead and generate three simple figures that will help you tell a story about how various Phoenix departments appear to operate and how they compare to each other in terms of work schedules. You get to decide what type of visualizations to create and there is more than one correct answer! Please include a brief written interpretation of how the different departments appear to operate.</li>
+</ol>
+<p>To help you you, check out a few figures you you could generate. Feel free to replicate.</p>
+<p><img src="mod-02-phx-salaries_files/figure-html/unnamed-chunk-9-1.png" width="80%"  /></p>
+<p><img src="mod-02-phx-salaries_files/figure-html/unnamed-chunk-10-1.png" width="80%"  /></p>
+<p><img src="mod-02-phx-salaries_files/figure-html/unnamed-chunk-11-1.png" width="80%"  /></p>
+<hr />
 </div>
 <div id="submitting-your-work" class="section level1">
 <h1>Submitting your work</h1>
