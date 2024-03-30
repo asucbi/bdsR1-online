@@ -247,6 +247,7 @@ For example, if earlier we were interested in the major with the highest unemplo
 <ol style="list-style-type: decimal">
 <li>Using what you’ve learned so far, arrange the data in descending order with respect to proportion of women in a major, and display only the major, the total number of people with major, and proportion of women. Show only the top 3 majors by using the <code>head()</code> function at the end of the pipeline.</li>
 </ol>
+<hr />
 </div>
 <div id="how-do-the-distributions-of-median-income-compare-across-major-categories" class="section level2">
 <h2>How do the distributions of median income compare across major categories?</h2>
@@ -260,7 +261,8 @@ These correspond to the 25th, 50th, and 75th percentiles of the income distribut
 <ol start="2" style="list-style-type: decimal">
 <li>Why do we often choose the median, rather than the mean, to describe the typical income of a group of people?</li>
 </ol>
-<p>The question we want to answer is “How do the distributions of median income compare across major categories?”.
+<hr />
+<p>Next, the question we want to answer is “How do the distributions of median income compare across major categories?”.
 We need to do a few things to answer this question: First, we need to group the data by <code>major_category</code>.
 Then, we need a way to summarize the distributions of median income within these groups.
 This decision will depend on the shapes of these distributions.
@@ -280,20 +282,25 @@ You might ask yourself: “What would be a meaningful difference in median incom
 <li><p>Plot the distribution of <code>median</code> income using a histogram, faceted by <code>major_category</code>.
 Use the <code>binwidth</code> you chose in the earlier exercise.</p></li>
 </ol>
+<hr />
 <p>Now that we’ve seen the shapes of the distributions of median incomes for each major category, we should have a better idea for which summary statistic to use to quantify the typical median income.</p>
 <ol start="5" style="list-style-type: decimal">
-<li>Which major category has the highest typical (you’ll need to decide what this means) median income? Use the partial code below, filling it in with the appropriate statistic and function. Also note that we are looking for the highest statistic, so make sure to arrange in the correct direction.</li>
+<li>Which major category has the highest typical median income? Use the partial code below, filling it in with the appropriate statistic and function. Also note that we are looking for the highest statistic, so make sure to arrange in the correct direction.</li>
 </ol>
+<p><label for="tufte-mn-4" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-4" class="margin-toggle"><span class="marginnote"><span style="display: block;">For “typical median income” you’ll need to decide what this means.
+There are various options you could choose. Up to you.</span></span></p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>college_recent_grads <span class="sc">%&gt;%</span></span>
 <span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>  <span class="fu">group_by</span>(major_category) <span class="sc">%&gt;%</span></span>
 <span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">___ =</span> <span class="fu">___</span>(median)) <span class="sc">%&gt;%</span></span>
 <span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>  <span class="fu">arrange</span>(___)</span></code></pre></div>
+<hr />
 <ol start="6" style="list-style-type: decimal">
 <li>Which major category is the least popular in this sample? To answer this question we can use a function called <code>count</code>, which first groups the data and then counts the number of observations in each category (see below). Add to the pipeline appropriately to arrange the results so that the major with the fewest observations is on top.</li>
 </ol>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>college_recent_grads <span class="sc">%&gt;%</span></span>
 <span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  <span class="fu">count</span>(major_category)</span></code></pre></div>
 <p>🧶 👀 💾 <em>Now is a good time to save and knit your document and confirm the outputs look as you expect them to.</em></p>
+<hr />
 </div>
 <div id="all-stem-fields-arent-the-same" class="section level2">
 <h2>All STEM fields aren’t the same</h2>
@@ -369,13 +376,15 @@ Other logical operators that are commonly used are</p>
 <ol start="7" style="list-style-type: decimal">
 <li>Which STEM majors have median salaries equal to or less than the median for all majors’ median earnings? Your output should only show the major name and median, 25th percentile, and 75th percentile earning for that major as and should be sorted such that the major with the highest median earning is on top.</li>
 </ol>
+<hr />
 </div>
 <div id="what-types-of-majors-do-women-tend-to-major-in" class="section level2">
 <h2>What types of majors do women tend to major in?</h2>
 <ol start="8" style="list-style-type: decimal">
-<li>Create a scatterplot of median income vs. proportion of women in that major, coloured by whether the major is in a STEM field or not. Describe the association between these three variables.</li>
+<li>Create a scatterplot of median income vs. proportion of women in that major, colored by whether the major is in a STEM field or not. Describe the association between these three variables.</li>
 </ol>
 <p>🧶 👀 💾 <em>Now is a good time to save and knit your document and confirm the outputs look as you expect them to.</em></p>
+<hr />
 </div>
 </div>
 <div id="submitting-your-work" class="section level1">
