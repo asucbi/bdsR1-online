@@ -454,9 +454,32 @@ In these cases the variables below reflect a different name than their counterpa
 <p><strong>There are some observations in this dataset that we will exclude from our analysis to match the Buzzfeed results.</strong></p>
 <hr />
 <ol start="2" style="list-style-type: decimal">
-<li>Create a new data frame called <code>nobel_living</code> that filters for: (a) laureates for whom <code>country</code> is available, (b) laureates who are people as opposed to organizations (organizations are denoted with <code>"org"</code> as their <code>gender</code>), (c) laureates who are still alive (their <code>died_date</code> is <code>NA</code>)</li>
+<li>Create a new data frame called <code>nobel_living</code> that filters for:
+<ul>
+<li>laureates for whom <code>country</code> is available,</li>
+<li>laureates who are people as opposed to organizations (organizations are denoted with <code>"org"</code> as their <code>gender</code>),</li>
+<li>laureates who are still alive (their <code>died_date</code> is <code>NA</code>)</li>
+</ul></li>
 </ol>
-<p><strong>Confirm that once you have filtered for these characteristics you are left with a data frame with 228 observations, once again using inline code.</strong></p>
+<div class="green">
+<p><strong>Hints with Pseudocode:</strong></p>
+<ul>
+<li>Start with the dataset <code>nobel</code> then pipe (%&gt;%) this into…
+<ul>
+<li>a filter function that needs to do three things based on the exercise instructions…</li>
+<li>FIRST THING: make sure you are getting rows where some country is actually listed in the <code>country</code> variable (did you inspect the variable to see what it looks like when a country is not listed?),</li>
+<li>SECOND THING: make sure you are getting rows where gender is not listed as <code>org</code></li>
+<li>THIRD THING: make sure you you are getting rows where the <code>died_date</code> variable IS listed as <code>NA</code></li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>nobel_living <span class="ot">&lt;-</span> nobel <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    FIRST THING,</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    SECOND THING,</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>    THIRD THING</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>  )</span></code></pre></div>
+</div>
+<p><strong>Confirm that once you have filtered for these characteristics you are left with a data frame with 228 observations.</strong></p>
 <hr />
 </div>
 <div id="claim-most-living-nobel-laureates-were-based-in-the-us-when-they-won-their-prizes" class="section level2">
@@ -465,32 +488,44 @@ In these cases the variables below reflect a different name than their counterpa
 <p>Let’s see if that’s true.</p>
 <p>First, we’ll create a new variable to identify whether the laureate was in the US when they won their prize. We’ll use the <code>mutate()</code> function for this.</p>
 <p>The following pipeline mutates the <code>nobel_living</code> data frame by adding a new variable called <code>country_us</code>. We use an if statement to create this variable.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>nobel_living <span class="ot">&lt;-</span> nobel_living <span class="sc">%&gt;%</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    <span class="at">country_us =</span> <span class="fu">if_else</span>(country <span class="sc">==</span> <span class="st">&quot;USA&quot;</span>, <span class="st">&quot;USA&quot;</span>, <span class="st">&quot;Other&quot;</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>nobel_living <span class="ot">&lt;-</span> nobel_living <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>    <span class="at">country_us =</span> <span class="fu">if_else</span>(country <span class="sc">==</span> <span class="st">&quot;USA&quot;</span>, <span class="st">&quot;USA&quot;</span>, <span class="st">&quot;Other&quot;</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  )</span></code></pre></div>
 <p>The first argument in the <code>if_else()</code> function we’re using is the condition we’re testing for. If <code>country</code> is equal to <code>"USA"</code>, we set <code>country_us</code> to <code>"USA"</code>. If not, we set the <code>country_us</code> to <code>"Other"</code>.</p>
 <div class="green">
 <!-- __NOTE:__ We can achieve the same result using the `fct_other()` function we've seen before (i.e. with `country_us = fct_other(country, "USA")`). We decided to use the `if_else()` here to show you one example of an if statement in R. -->
 <p><strong>UNDERSTANDING CHECK</strong> Make sure you understand what is going on with the <code>if_else</code> function when used with <code>mutate</code>. This is a common method for creating a new variable (e.g., “country_us”) given the values of some other variable in your dataset (e.g., country).</p>
 </div>
 <p>Next, we will limit our analysis to only the following categories: Physics, Medicine, Chemistry, and Economics.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>nobel_living_science <span class="ot">&lt;-</span> nobel_living <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="fu">filter</span>(category <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Physics&quot;</span>, <span class="st">&quot;Medicine&quot;</span>, <span class="st">&quot;Chemistry&quot;</span>, <span class="st">&quot;Economics&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>nobel_living_science <span class="ot">&lt;-</span> nobel_living <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  <span class="fu">filter</span>(category <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Physics&quot;</span>, <span class="st">&quot;Medicine&quot;</span>, <span class="st">&quot;Chemistry&quot;</span>, <span class="st">&quot;Economics&quot;</span>))</span></code></pre></div>
 <div class="green">
 <p><strong>UNDERSTANDING CHECK</strong> Do you understand what is going on with the use of <code>%in%</code> as a twist to the <code>filter</code> function? The “category” variable has six levels. You can check this by running <code>unique(nobel_living$category)</code>. But we only want the four categories listed above. So what we’re telling filter to do is to look <code>%in</code> “category” for the four categories. And notice how these four categories have been grouped into a character vector using the super common <code>c()</code> function.</p>
 </div>
-<p>For the next exercise work with the <code>nobel_living_science</code> data frame you created above.</p>
-<p>This means you’ll need to define this data frame in your starter document, even though the next exercise doesn’t explicitly ask you to do so.</p>
+<p>For the next exercise work with the <code>nobel_living_science</code> data frame you created above. [<strong>NOTE:</strong> If not obvious, you need to copy/paste the code given to you above into your starter file to create <code>nobel_living_science</code> because you’re going to need it for Exercise 3].</p>
 <hr />
 <ol start="3" style="list-style-type: decimal">
 <li><p>Create a faceted bar plot visualizing the relationship between the category of prize and whether the laureate was in the US when they won the nobel prize. Interpret your visualization, and say a few words about whether Buzzfeed’s claim for this section is supported by the data.</p>
 <ul>
-<li>Your visualization should be faceted by category.</li>
+<li>Your visualization should be faceted by <code>category</code>.</li>
 <li>For each facet you should have two bars, one for winners in the US and one for Other.</li>
 <li>Flip the coordinates so the bars are horizontal, not vertical.</li>
 </ul></li>
 </ol>
+<div class="green">
+<p><strong>Hint:</strong> You see that little word below “Solution” below? If you click it it will show you what the figure should look like. <strong>BUT - PLEASE WAIT BEFORE CLICKING IT!!!</strong> Seriously, hold off for one sec. </p>
+<p>A big part of learning to do data science and how to program is the process of trial and error and attempting to make sense of instructions, hitting an impasse, and then figuring out how to get past it. So, it’s okay to struggle a bit. Once you have…</p>
+<p>Then hit “Solution” to see what you should be generating. It’s still going to be a challenge 😅</p>
+<div class="solution-begin">
+<span id="sol-start-1" class="fa fa-chevron-circle-right solution-icon clickable" onclick="toggle_visibility(&#39;sol-body-1&#39;, &#39;sol-start-1&#39;)"> Solution </span>
+</div>
+<div id="sol-body-1" class="solution-body" style="display: none;">
+<p><img src="mod-03-nobel-laureates_files/figure-html/prize-living-in-us-1.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<p class="solution-end">
+</p>
+</div>
 <hr />
 </div>
 <div id="claim-of-those-us-based-nobel-laureates-many-were-born-in-other-countries" class="section level2">
@@ -503,14 +538,14 @@ In these cases the variables below reflect a different name than their counterpa
 </div>
 <hr />
 <ol start="5" style="list-style-type: decimal">
-<li><p>Add a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not. Based on your visualization, do the data appear to support Buzzfeed’s claim for this section? Explain your reasoning in 1-2 sentences.</p>
+<li><p>Swap out a variable to your visualization from the code written in Exercise 3 to capture whether the laureate was born in the US or not. Based on your visualization, do the data appear to support Buzzfeed’s claim for this section? Explain your reasoning in 1-2 sentences.</p>
 <ul>
 <li>Your final visualization should contain a facet for each category.</li>
 <li>Within each facet, there should be a bar for whether the laureate won the award in the US or not.</li>
 <li>Each bar should have segments for whether the laureate was born in the US or not.</li>
 </ul></li>
 </ol>
-<div class="green">
+<div class="yellow">
 <p>Note that your bar plot won’t exactly match the one from the Buzzfeed article. This is likely because the data has been updated since the article was published.</p>
 </div>
 <hr />
