@@ -1,6 +1,5 @@
 ---
 title: "HW 05 - Legos"
-link-citations: yes
 ---
 
 ```{r include = FALSE}
@@ -17,7 +16,7 @@ None of these exercises are super hard, but you will likely find yourself engagi
 
 # Getting started
 
-Go to Posit Cloud and locate the project folder for "Module 5" and open the starter R Markdown document.
+Go to Posit Cloud and locate the project folder for "Assignments: Module 5" and open the starter R Markdown document for the HW.
 
 Knit the document to make sure it compiles without errors.
 
@@ -33,9 +32,9 @@ library(tidyverse)
 
 ## Data
 
-The data can be found in the `data` folder, and the file you are looking for is called:  `lego_sales.csv`. You are going to need to import it in order to work with it. 
+The data can be found in the `data` folder, and the file you are looking for is called: `lego_sales.csv`. You are going to need to import it in order to work with it. 
 
-Please read more about the dataset by inspecting its documentation, which you can find [here](https://rstudio-education.github.io/dsbox/reference/lego_sales.html).
+Please read more about the dataset by inspecting its documentation, which you can find [here](https://rdrr.io/github/rstudio-education/dsbox/man/lego_sales.html).
 
 # Exercises
 
