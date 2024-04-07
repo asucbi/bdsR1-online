@@ -225,18 +225,13 @@ If we join this with our `combined` data, we will be ready to plot a map of the 
 
 6. Join the `map_data("world")` with the `combined` data to create a new dataset. Make sure to do so in a way that only keeps the countries we have data for in the `combined` dataset. You can assign this new dataset to a variable just called `d`.
 
-```{r, eval=FALSE}
-d <- ... %>%
-  ...
-```
-
 ```{r, echo=FALSE, eval=TRUE}
 d <- map_data("world") %>% 
   right_join(combined, by = c("region"="Country"))
 ```
 
 :::green
-__Hint:__ Pay attention to the fact I wrote you want to prioritize the countries in the `combined` dataset. The `map_data("world")` dataset has way more countries than we need. So which join function do you want to use? Next, you need to specify in the join function which variables from the two datasets we should join on (using the `by = c(VAR1,VAR2)` argument). 
+__Hint:__ Pay attention to the fact I wrote you want to prioritize the countries in the `combined` dataset. The `map_data("world")` dataset has way more countries than we need. So which join function do you want to use? Next, you need to specify in the join function which variable in each dataset has the countries we want to join on (using the `by = c(VAR1=VAR2)` argument). 
 :::
 
 :::frame

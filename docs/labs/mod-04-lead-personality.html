@@ -482,10 +482,8 @@ pre code {
 <ol start="6" style="list-style-type: decimal">
 <li>Join the <code>map_data("world")</code> with the <code>combined</code> data to create a new dataset. Make sure to do so in a way that only keeps the countries we have data for in the <code>combined</code> dataset. You can assign this new dataset to a variable just called <code>d</code>.</li>
 </ol>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> ... <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>  ...</span></code></pre></div>
 <div class="green">
-<p><strong>Hint:</strong> Pay attention to the fact I wrote you want to prioritize the countries in the <code>combined</code> dataset. The <code>map_data("world")</code> dataset has way more countries than we need. So which join function do you want to use? Next, you need to specify in the join function which variables from the two datasets we should join on (using the <code>by = c(VAR1,VAR2)</code> argument).</p>
+<p><strong>Hint:</strong> Pay attention to the fact I wrote you want to prioritize the countries in the <code>combined</code> dataset. The <code>map_data("world")</code> dataset has way more countries than we need. So which join function do you want to use? Next, you need to specify in the join function which variable in each dataset has the countries we want to join on (using the <code>by = c(VAR1=VAR2)</code> argument).</p>
 </div>
 <div class="frame">
 <p>Short variable names like <code>d</code> can be useful for “temporary” data that won’t be used for more than one thing. We’re only going to be using <code>d</code> to make our map plots, but we wouldn’t use it for any other kinds of analysis, so the short and generically non-descript name can be OK here.</p>
@@ -494,14 +492,14 @@ pre code {
 <div id="map-it" class="section level3">
 <h3>Map it!</h3>
 <p>Now we’re ready to make our map to explore the possibility of geographic differences. The code below creates the basic map.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x=</span>long, <span class="at">y =</span> lat, <span class="at">group=</span>group)) <span class="sc">+</span> </span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>  <span class="fu">geom_polygon</span>() <span class="sc">+</span> </span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() </span></code></pre></div>
-<p><img src="mod-04-lead-personality_files/figure-html/unnamed-chunk-13-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x=</span>long, <span class="at">y =</span> lat, <span class="at">group=</span>group)) <span class="sc">+</span> </span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>  <span class="fu">geom_polygon</span>() <span class="sc">+</span> </span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() </span></code></pre></div>
+<p><img src="mod-04-lead-personality_files/figure-html/unnamed-chunk-12-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <ol start="7" style="list-style-type: decimal">
 <li>Modify the code above to plot agreeableness by country. What you produce should look like so:</li>
 </ol>
-<p><img src="mod-04-lead-personality_files/figure-html/unnamed-chunk-14-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="mod-04-lead-personality_files/figure-html/unnamed-chunk-13-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <div class="green">
 <p><strong>Hint:</strong> To generate this, use the <code>fill</code> option in the <code>aes()</code>, making <code>fill</code> equal to the agreeableness variable. And then, somewhere in your code, you will use the viridis color scheme to make it look nicer with <code>scale_fill_viridis_c()</code></p>
 </div>
