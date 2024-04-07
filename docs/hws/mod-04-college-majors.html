@@ -245,7 +245,11 @@ For example, if earlier we were interested in the major with the highest unemplo
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(unemployment_rate)) <span class="sc">%&gt;%</span></span>
 <span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  <span class="fu">select</span>(rank, major, unemployment_rate)</span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Using what you’ve learned so far, arrange the data in descending order with respect to proportion of women in a major, and display only the major, the total number of people with major, and proportion of women. Show only the top 3 majors by using the <code>head()</code> function at the end of the pipeline.</li>
+<li><p>Using what you’ve learned so far, arrange the data in descending order with respect to proportion of women in a major, and display:</p>
+<ul>
+<li>only the major, the total number of people with major, and proportion of women.</li>
+<li>Show only the top 3 majors by using the <code>head()</code> function at the end of the pipeline.</li>
+</ul></li>
 </ol>
 <hr />
 </div>
@@ -278,9 +282,12 @@ The first argument is the data frame, and the next argument gives the mapping of
 It’s good practice to always think in the context of the data and try out a few binwidths before settling on a binwidth.
 You might ask yourself: “What would be a meaningful difference in median incomes?” $1 is obviously too little, $10000 might be too high.</p>
 <ol start="3" style="list-style-type: decimal">
-<li><p>Try binwidths of $1000 and $5000 and choose one. Explain your reasoning for your choice. Note that the binwidth is an argument for the <code>geom_histogram</code> function. So to specify a binwidth of $1000, you would use <code>geom_histogram(binwidth = 1000)</code>.</p></li>
-<li><p>Plot the distribution of <code>median</code> income using a histogram, faceted by <code>major_category</code>.
-Use the <code>binwidth</code> you chose in the earlier exercise.</p></li>
+<li>Try binwidths of $1000 and $5000 and choose one. Display the figure. Explain your reasoning for your choice.</li>
+</ol>
+<p><strong>Note</strong> binwidth is an argument for the <code>geom_histogram</code> function. So to specify a binwidth of $1000, you would use <code>geom_histogram(binwidth = 1000)</code>.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Plot the distribution of <code>median</code> income using a histogram, faceted by <code>major_category</code>.
+Use the <code>binwidth</code> you chose in the earlier exercise.</li>
 </ol>
 <hr />
 <p>Now that we’ve seen the shapes of the distributions of median incomes for each major category, we should have a better idea for which summary statistic to use to quantify the typical median income.</p>
@@ -295,10 +302,13 @@ There are various options you could choose. Up to you.</span></span></p>
 <span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>  <span class="fu">arrange</span>(___)</span></code></pre></div>
 <hr />
 <ol start="6" style="list-style-type: decimal">
-<li>Which major category is the least popular in this sample? To answer this question we can use a function called <code>count</code>, which first groups the data and then counts the number of observations in each category (see below). Add to the pipeline appropriately to arrange the results so that the major with the fewest observations is on top.</li>
+<li>Which major category is the least popular in this sample?</li>
 </ol>
+<p><strong>HINT</strong> To answer this question we can use a function called <code>count</code>, which first groups the data and then counts the number of observations in each category (see below).</p>
+<p><label for="tufte-mn-5" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-5" class="margin-toggle"><span class="marginnote"><span style="display: block;">Add to the pipeline appropriately to arrange the results so that the
+major with the fewest observations is on top.</span></span></p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>college_recent_grads <span class="sc">%&gt;%</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  <span class="fu">count</span>(major_category)</span></code></pre></div>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  <span class="fu">count</span>(major_category) <span class="sc">%&gt;%</span></span></code></pre></div>
 <p>🧶 👀 💾 <em>Now is a good time to save and knit your document and confirm the outputs look as you expect them to.</em></p>
 <hr />
 </div>
@@ -367,14 +377,31 @@ Other logical operators that are commonly used are</p>
 </tr>
 </tbody>
 </table>
-<p>We can use the logical operators to also <code>filter</code> our data for STEM majors whose median earnings is less than median for all majors’ median earnings, which we found to be $36,000 earlier.</p>
+<p>We can use the logical operators to also <code>filter</code> our data for STEM majors whose median earnings is less than median for all majors’ median earnings, <strong>which happens to be $36,000.</strong></p>
+<p><label for="tufte-mn-6" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-6" class="margin-toggle"><span class="marginnote"><span style="display: block;">Keep in mind this $36,000 value to answer Exercise 7.</span></span></p>
+<p><label for="tufte-mn-7" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-7" class="margin-toggle"><span class="marginnote"><span style="display: block;">Also, if you don’t believe me that the median for all majors’ median
+earnings $36,000, you can always run the code yourself:<br><br>
+college_recent_grads %&gt;% summarise(median_of_majors_median =
+median(median))</span></span></p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>college_recent_grads <span class="sc">%&gt;%</span></span>
 <span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
 <span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>    major_type <span class="sc">==</span> <span class="st">&quot;stem&quot;</span>,</span>
 <span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>    median <span class="sc">&lt;</span> <span class="dv">36000</span></span>
 <span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>  )</span></code></pre></div>
+<p><label for="tufte-mn-8" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-8" class="margin-toggle"><span class="marginnote"><span style="display: block;"><strong>Pseudocode</strong></span>
+<span style="display: block;"><strong>STEP 1</strong> Start with your data frame and then (%&gt;%)
+<strong>STEP 2</strong> filter that dataset to get what is being asked
+for in the exercise instructions (e.g., STEM majors and less than the
+median for all median earnings) and then (%&gt;%) <strong>STEP
+3</strong> only display what is being asked for in the exercise
+instructions and then (%&gt;%) <strong>STEP 4</strong> sort in the way
+that is being asked for in the exercise instructions</span></span></p>
 <ol start="7" style="list-style-type: decimal">
-<li>Which STEM majors have median salaries equal to or less than the median for all majors’ median earnings? Your output should only show the major name and median, 25th percentile, and 75th percentile earning for that major as and should be sorted such that the major with the highest median earning is on top.</li>
+<li><p>Which STEM majors have median salaries equal to or less than the median for all majors’ median earnings?</p>
+<ul>
+<li>Your output should have as columns <code>major</code>, <code>median</code>, <code>p25th</code>, and <code>p75th</code></li>
+<li>And your dataframe should be sorted such that the major with the highest median earning is on top</li>
+</ul></li>
 </ol>
 <hr />
 </div>

@@ -128,7 +128,10 @@ college_recent_grads %>%
   select(rank, major, unemployment_rate)
 ```
 
-1.  Using what you've learned so far, arrange the data in descending order with respect to proportion of women in a major, and display only the major, the total number of people with major, and proportion of women. Show only the top 3 majors by using the `head()` function at the end of the pipeline.
+1.  Using what you've learned so far, arrange the data in descending order with respect to proportion of women in a major, and display: 
+
+    -   only the major, the total number of people with major, and proportion of women. 
+    -   Show only the top 3 majors by using the `head()` function at the end of the pipeline.
 
 ---
 
@@ -169,7 +172,9 @@ This is telling us that we might want to reconsider the binwidth we chose for ou
 It's good practice to always think in the context of the data and try out a few binwidths before settling on a binwidth.
 You might ask yourself: "What would be a meaningful difference in median incomes?" \$1 is obviously too little, \$10000 might be too high.
 
-3. Try binwidths of \$1000 and \$5000 and choose one. Explain your reasoning for your choice. Note that the binwidth is an argument for the `geom_histogram` function. So to specify a binwidth of \$1000, you would use `geom_histogram(binwidth = 1000)`.
+3. Try binwidths of \$1000 and \$5000 and choose one. Display the figure. Explain your reasoning for your choice. 
+
+__Note__ binwidth is an argument for the `geom_histogram` function. So to specify a binwidth of \$1000, you would use `geom_histogram(binwidth = 1000)`.
 
 4. Plot the distribution of `median` income using a histogram, faceted by `major_category`.
     Use the `binwidth` you chose in the earlier exercise.
@@ -194,11 +199,17 @@ college_recent_grads %>%
 
 ---
 
-6. Which major category is the least popular in this sample? To answer this question we can use a function called `count`, which first groups the data and then counts the number of observations in each category (see below). Add to the pipeline appropriately to arrange the results so that the major with the fewest observations is on top.
+6. Which major category is the least popular in this sample? 
 
-```{r}
+**HINT** To answer this question we can use a function called `count`, which first groups the data and then counts the number of observations in each category (see below). 
+
+```{marginfigure}
+Add to the pipeline appropriately to arrange the results so that the major with the fewest observations is on top.
+```
+
+```{r, eval=FALSE}
 college_recent_grads %>%
-  count(major_category)
+  count(major_category) %>%
 ```
 
 🧶 👀 💾   *Now is a good time to save and knit your document and confirm the outputs look as you expect them to.*
@@ -244,7 +255,16 @@ Other logical operators that are commonly used are
 | `x & y`             | and                      |
 | `!x`                | not                      |
 
-We can use the logical operators to also `filter` our data for STEM majors whose median earnings is less than median for all majors' median earnings, which we found to be \$36,000 earlier.
+We can use the logical operators to also `filter` our data for STEM majors whose median earnings is less than median for all majors' median earnings, **which happens to be $36,000.**
+
+```{marginfigure}
+Keep in mind this $36,000 value to answer Exercise 7. 
+```
+
+```{marginfigure}
+Also, if you don't believe me that the median for all majors' median earnings $36,000, you can always run the code yourself:<br><br>
+college_recent_grads %>% summarise(median_of_majors_median = median(median))
+```
 
 ```{r}
 college_recent_grads %>%
@@ -254,8 +274,16 @@ college_recent_grads %>%
   )
 ```
 
+```{marginfigure}
+**Pseudocode**
 
-7. Which STEM majors have median salaries equal to or less than the median for all majors' median earnings? Your output should only show the major name and median, 25th percentile, and 75th percentile earning for that major as and should be sorted such that the major with the highest median earning is on top.
+**STEP 1** Start with your data frame and then (%>%) **STEP 2** filter that dataset to get what is being asked for in the exercise instructions (e.g., STEM majors and less than the median for all median earnings) and then (%>%) **STEP 3** only display what is being asked for in the exercise instructions and then (%>%) **STEP 4** sort in the way that is being asked for in the exercise instructions
+```
+
+7. Which STEM majors have median salaries equal to or less than the median for all majors' median earnings? 
+
+    - Your output should have as columns `major`, `median`, `p25th`, and `p75th` 
+    - And your dataframe should be sorted such that the major with the highest median earning is on top
 
 ---
 
