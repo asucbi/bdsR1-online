@@ -4,7 +4,7 @@ library(tidyverse)
 library(rvest)
 library(here)
 
-# function: scrape_pac ---------------------------------------------------------
+# #1 function: scrape_pac ---------------------------------------------------------
 
 scrape_pac <- function(url) {
   
@@ -42,7 +42,7 @@ scrape_pac <- function(url) {
 
 }
 
-## test function ----------------------------------------------------------------
+## #2 test function ----------------------------------------------------------------
 
 url_2022 <- "___"
 pac_2022 <- scrape_pac(___)
@@ -53,7 +53,7 @@ pac_2020 <- scrape_pac(___)
 url_2000 <- "___"
 pac_2000 <- scrape_pac(___)
 
-## list of urls -----------------------------------------------------------------
+## #3 list of urls -----------------------------------------------------------------
 
 # first part of url
 root <- "https://www.opensecrets.org/political-action-committees-pacs/foreign-connected-pacs/"
@@ -64,9 +64,9 @@ year <- seq(from = ___, to = ___, by = ___)
 # construct urls by pasting first and second parts together
 urls <- paste0(___, ___)
 
-# map the scrape_pac function over list of urls --------------------------------
+## #4 map the scrape_pac function over list of urls --------------------------------
 pac_all <- ___(___, ___)
 
-## write data -------------------------------------------------------------------
+## #5 write data -------------------------------------------------------------------
 
 write_csv(___, file = here::here("data/pac-all.csv"))

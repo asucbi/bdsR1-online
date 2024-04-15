@@ -137,7 +137,8 @@ code {
 
 .marginnote code,
 .sidenote code {
-	font-size: 1rem;
+	display: none !important;
+	/* font-size: 1rem; */
 }
 
 /* Exercise counter */
