@@ -77,7 +77,7 @@ Below is the organization of your directory in Posit. I've provided a comment "#
 |-data
 |  |- # to be created by you!
 |-mod-06-lab.Rmd                    # analysis
-|-mod-06-lab.Rproj
+|-project.Rproj
 |-scripts                           
 |  |- 01-scrape-page-one.R          # web scraping a single page
 |  |- 02-scrape-page-function.R     # web scraping: functions

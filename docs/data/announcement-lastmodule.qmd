@@ -1,0 +1,58 @@
+---
+title: "Announcement Last Module"
+editor: 
+  markdown: 
+    wrap: sentence
+---
+
+For our last two weeks I've made some changes to make your life easier and to really focus on learning outcomes. I want to slow things down. 
+
+### Breakdown of the major changes
+
+-   Module 6 will go from this week and stretch into next week to close us out. **There is no longer a Module 7** 
+
+-   The Computing Lab Assignment is now broken into two parts with two new deadlines
+
+-   There is no Homework Assignment due this week - it will be due next week 
+
+-   There is no Final Exam - it's just the three assignments (e.g., Lab in 2 parts, 1 HW)
+
+### Here is what the new Module 6 looks like:
+
+![](screenshot1.png){fig-align="center"}
+
+::: callout-important
+Please, please start watching the lectures now! Do not wait. Start engaging with the material now because this module is going to be challenging. You need to start early. You need to start now. 
+:::
+
+### New due dates
+
+Note that the first part of the Computing Lab Assignment is due this **THURSDAY, APRIL 18th by 11:59pm.** 
+
+The second part is due **MONDAY, APRIL 22nd by 11:59pm** 
+
+The Homework Assignment is due next **Thursday, April 25th by 11:59pm.**
+
+### Why is the Computing Lab Assignment now in two parts?
+
+The main reason is that it is slightly more challenging and I want you to start early and reach out for help if you get into trouble. I've noticed some people don't start until the day these assignments are due and then hit a wall and get frustrated. This is not great for your motivation and learning. So I'm breaking it into two parts to push you into starting early.  
+
+::: callout-tip
+If you start early it gives you time to reach out and set up an appointment with a course assistant when things get tough. **Please reach out to the CAs!**
+:::
+
+## Updates to syllabus for grades and earned points
+
+Because I have dropped Module 7, this means that there are only 6 HWs and 6 LABS. Each of these is worth 200 points, which means a total of 2400 points can be earned. **BUT** I will be dropping your lowest score on ONE Computing Lab and on ONE HW. That means the maximum # of points you can earn is 2000. 
+
+::: callout-important
+The drops for the lowest scores are not yet reflected in the Gradebook but will be soon. I will let you know when that happens. 
+:::
+
+## Extra credit?
+
+After we grade Module 5, I'm going to assess the overall performance of the class and decide whether to offer extra credit. 
+
+
+
+
