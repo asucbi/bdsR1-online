@@ -55,8 +55,11 @@ first_thirty <- tibble(
 
 second_url <- "___"
 
+## repeat code from exercises 1 through 5 to create "second_thirty," for example:
+
 page <- read_html(second_url)
-...
+
+... 
 
 second_thirty <- tibble(
   ...
