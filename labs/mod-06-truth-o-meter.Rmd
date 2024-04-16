@@ -540,6 +540,6 @@ __Note__ that this will result in some warnings when you run the code, and that'
 # ALL DONE FOR COMPUTING LAB SUBMISSION PART 2
 
 :::red
-Once you have completed `mod-06-lab.Rmd`, knit it, make sure it looks great, and upload to Canvas by **April 21st, 11:59PM.** Please leave all your completed `.R` script files in Posit Cloud. 
+Once you have completed `mod-06-lab.Rmd`, knit it, make sure it looks great, and upload to Canvas by **April 22nd, 11:59PM.** Please leave all your completed `.R` script files in Posit Cloud. 
 :::
 
